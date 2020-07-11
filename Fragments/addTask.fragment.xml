@@ -1,0 +1,89 @@
+<core:FragmentDefinition xmlns:custom="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc" xmlns:fb="sap.ui.layout.form" displayBlock="true" xmlns="sap.m" height="100%">
+	<ResponsivePopover title="Add New Task" class="sapUiPopupWithPadding" placement="Top" afterClose="handleCloseClick">
+		<beginButton>
+			<Button text="Cancel" press="handleCloseClick"/>
+		</beginButton>
+		<endButton>
+			<Button text="Save" press="handleSaveClick"/>
+		</endButton>
+		<content>
+			<VBox class="sapUiSmallMargin">
+				<!--	<fb:FilterBar showRestoreButton="true" showClearButton="true" class="filterbarbackgroundcolor">
+					<fb:filterGroupItems>
+						<fb:FilterGroupItem groupName="__$INTERNAL$" name="A" label="Project ID" partOfCurrentVariant="true" visibleInFilterBar="true">
+							<fb:control>
+								<Select width="10rem" items="{viewData>/UserSet}" change="onChangeClick">
+									<core:Item text="{viewData>Description}" key="{viewData>Project}"/>
+								</Select>
+							</fb:control>
+						</fb:FilterGroupItem>
+						<fb:FilterGroupItem groupName="__$INTERNAL$" name="B" label="RICEF ID" partOfCurrentVariant="true" visibleInFilterBar="true">
+							<fb:control>
+								<Select width="10rem" items="{viewData>/UserSet}" change="onChangeClick">
+									<core:Item text="{viewData>Description}" key="{viewData>Project}"/>
+								</Select>
+							</fb:control>
+						</fb:FilterGroupItem>
+						<fb:FilterGroupItem groupName="__$INTERNAL$" name="C" label="Add Task" partOfCurrentVariant="true" visibleInFilterBar="true">
+							<fb:control>
+								<TextArea id="idTask1"/>
+							</fb:control>
+						</fb:FilterGroupItem>
+					</fb:filterGroupItems>
+					<fb:FilterGroupItem groupName="__$INTERNAL$" name="D" label="User ID" partOfCurrentVariant="true" visibleInFilterBar="true">
+						<fb:control>
+							<Select width="10rem" items="{viewData>/UserSet}" change="onChangeClick">
+								<core:Item text="{viewData>UserName}" key="{viewData>UserName}"/>
+							</Select>
+						</fb:control>
+					</fb:FilterGroupItem>
+				</fb:FilterBar>-->
+				<fb:Form editable="true">
+					<fb:layout>
+						<fb:ResponsiveGridLayout labelSpanXL="3" labelSpanL="3" labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4"
+							emptySpanL="4" emptySpanM="4" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="false"/>
+					</fb:layout>
+					<fb:formContainers>
+						<fb:FormContainer>
+							<fb:formElements>
+								<fb:FormElement id="ProjectID">
+									<Label labelFor="idProcessName" text="Project Name" class="wordMand2"></Label>
+									<fb:fields>
+										<Select width="10rem" items="{viewData>/UserSet}" change="onChangeClick">
+											<core:Item text="{viewData>UserName}" key="{viewData>UserName}"/>
+										</Select>
+									</fb:fields>
+								</fb:FormElement>
+								<fb:FormElement id="RICEFID">
+									<Label labelFor="idRICEFID" text="RICEF ID" class="wordMand2"></Label>
+									<fb:fields>
+										<Select width="10rem" items="{viewData>/UserSet}" change="onChangeClick">
+											<core:Item text="{viewData>UserName}" key="{viewData>UserName}"/>
+										</Select>
+									</fb:fields>
+								</fb:FormElement>
+								<fb:FormElement id="TaskID">
+									<Label labelFor="idTask" text="Task" class="wordMand2"></Label>
+									<fb:fields>
+										<Select width="10rem" items="{viewData>/UserSet}" change="onChangeClick">
+											<core:Item text="{viewData>UserName}" key="{viewData>UserName}"/>
+										</Select>
+									</fb:fields>
+								</fb:FormElement>
+								<fb:FormElement id="UserID">
+									<Label labelFor="idUserName" text="User Name" class="wordMand2"></Label>
+									<fb:fields>
+										<Select width="10rem" items="{viewData>/UserSet}" change="onChangeClick">
+											<core:Item text="{viewData>UserName}" key="{viewData>UserName}"/>
+										</Select>
+									</fb:fields>
+								</fb:FormElement>
+							</fb:formElements>
+						</fb:FormContainer>
+					</fb:formContainers>
+					</fb:Form>
+				</VBox>
+			</content>
+		</ResponsivePopover>
+	</core:FragmentDefinition>

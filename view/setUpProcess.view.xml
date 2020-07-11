@@ -1,0 +1,20 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	controllerName="fi.pms.solution.ZFI_PMS_SOL.controller.setUpProcess" xmlns:html="http://www.w3.org/1999/xhtml">
+	<App>
+		<pages>
+			<Page title="{i18n>PROCESS}" showNavButton="true" navButtonPress="onBack_Process">
+				<content>
+					<core:Fragment fragmentName="fi.pms.solution.ZFI_PMS_SOL.Fragments.Processes" type="XML"/>
+				</content>
+				<footer>
+					<OverflowToolbar id="idFooter">
+						<ToolbarSpacer/>
+						<Button type="Emphasized" icon="sap-icon://save" enabled="false" id="idSaveButton" text="Save" class="sapUiSmallMarginEnd" press="onSave"/>
+						<Button type="Emphasized" icon="sap-icon://display" enabled="false" id="idPreviewButton" text="{i18n>ShowPreview}"
+							class="sapUiSmallMarginEnd" press="onPreview"/>
+					</OverflowToolbar>
+				</footer>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

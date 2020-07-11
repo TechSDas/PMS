@@ -1,0 +1,46 @@
+<core:FragmentDefinition xmlns:custom="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc" xmlns:fb="sap.ui.comp.filterbar" displayBlock="true" xmlns="sap.m" height="100%">
+	<ResponsivePopover title="Add Miscellaneous" class="sapUiPopupWithPadding" placement="Top" afterClose="onCloseClick">
+		<beginButton>
+			<Button text="Cancel" press="onCloseClick"/>
+		</beginButton>
+		<endButton>
+			<Button text="Add" press="onSaveClick"/>
+		</endButton>
+		<content>
+			<VBox class="sapUiSmallMargin">
+				<fb:FilterBar showRestoreButton="true" showClearButton="true" class="filterbarbackgroundcolor">
+					<fb:filterGroupItems>
+						<fb:FilterGroupItem groupName="__$INTERNAL$" name="A" label="Project ID" partOfCurrentVariant="true" visibleInFilterBar="true">
+							<fb:control>
+								<Select width="10rem" items="{viewData>/UserSet}" change="onChangeClick">
+									<core:Item text="{viewData>Description}" key="{viewData>Project}"/>
+								</Select>
+							</fb:control>
+						</fb:FilterGroupItem>
+						<fb:FilterGroupItem groupName="__$INTERNAL$" name="B" label="Task" partOfCurrentVariant="true" visibleInFilterBar="true">
+							<fb:control>
+								<Input id="idTask"/>
+							</fb:control>
+						</fb:FilterGroupItem>
+						<fb:FilterGroupItem groupName="__$INTERNAL$" name="C" label="Date" partOfCurrentVariant="true" visibleInFilterBar="true">
+							<fb:control>
+								<DatePicker id="DP1" placeholder="Enter Date" change="handleChange" class="sapUiSmallMarginBottom"/>
+							</fb:control>
+						</fb:FilterGroupItem>
+						<fb:FilterGroupItem groupName="__$INTERNAL$" name="D" label="Hours Worked" partOfCurrentVariant="true" visibleInFilterBar="true">
+							<fb:control>
+								<Input id="idHours"/>
+							</fb:control>
+						</fb:FilterGroupItem>
+						<fb:FilterGroupItem groupName="__$INTERNAL$" name="E" label="Comments" partOfCurrentVariant="true" visibleInFilterBar="true">
+							<fb:control>
+								<TextArea id="idComments"/>
+							</fb:control>
+						</fb:FilterGroupItem>
+					</fb:filterGroupItems>
+				</fb:FilterBar>
+			</VBox>
+		</content>
+	</ResponsivePopover>
+</core:FragmentDefinition>

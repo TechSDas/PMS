@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+	xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+	<edmx:DataServices m:DataServiceVersion="2.0">
+		<Schema Namespace="ZDPMT_GW_INIT_STAT_UI_SRV" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+			<EntityType Name="F4Searchhelp" sap:content-version="1">
+				<Key><PropertyRef Name="Projid"/><PropertyRef Name="Process"/></Key><Property Name="Projid" Type="Edm.String" Nullable="false" sap:unicode="false"/><Property Name="Process" Type="Edm.String" Nullable="false" sap:unicode="false"/><Property Name="TableName" Type="Edm.String" sap:unicode="false"/><Property Name="FieldName" Type="Edm.String" sap:unicode="false"/><Property Name="DataElement" Type="Edm.String" sap:unicode="false"/><Property Name="ValueTab" Type="Edm.String" sap:unicode="false"/><Property Name="Domain" Type="Edm.String" sap:unicode="false"/><Property Name="DdLanguage" Type="Edm.String" sap:unicode="false"/><Property Name="As4Local" Type="Edm.String" sap:unicode="false"/><Property Name="Valpos" Type="Edm.String" sap:unicode="false"/><Property Name="As4vers" Type="Edm.String" sap:unicode="false"/><Property Name="DdText" Type="Edm.String" sap:unicode="false"/><Property Name="DomainLd" Type="Edm.String" sap:unicode="false"/><Property Name="DomvalHd" Type="Edm.String" sap:unicode="false"/><Property Name="DomvalueL" Type="Edm.String" sap:unicode="false"/></EntityType>
+			<EntityType Name="UserProcess" sap:content-version="1">
+				<Key><PropertyRef Name="Projid"/></Key><Property Name="Mandt" Type="Edm.String" MaxLength="3" sap:unicode="false"/><Property Name="Projid" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false"/><Property Name="Process" Type="Edm.String" MaxLength="40" sap:unicode="false"/><Property Name="Username" Type="Edm.String" MaxLength="12" sap:unicode="false"/><Property Name="Crte" Type="Edm.String" MaxLength="1" sap:unicode="false"/><Property Name="Change" Type="Edm.String" MaxLength="1" sap:unicode="false"/><Property Name="Display" Type="Edm.String" MaxLength="1" sap:unicode="false"/><Property Name="Role" Type="Edm.String" MaxLength="30" sap:unicode="false"/><Property Name="ProcessDesc" Type="Edm.String" MaxLength="20" sap:unicode="false"/></EntityType>
+			<EntityType Name="UserDetails" sap:content-version="1">
+				<Key><PropertyRef Name="UserName"/></Key><Property Name="UserName" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="FirstName" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="LastName" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="MobileNo" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="EmailID" Type="Edm.String" Nullable="false" MaxLength="240" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Decimalfmt" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Role" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Datefmt" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="HeaderDetails" sap:content-version="1">
+				<Key><PropertyRef Name="Projid"/><PropertyRef Name="Process"/></Key><Property Name="Mandt" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Client" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Projid" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Project ID" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Process" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Process" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="SectionId" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Section ID"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="SectionName" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Section Name"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="SectionSeqNum" Type="Edm.String" Nullable="false" MaxLength="7" sap:unicode="false" sap:label="Section Sequence Number"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><NavigationProperty Name="NavHeadToSection" Relationship="ZDPMT_GW_INIT_STAT_UI_SRV.HeadToSection" FromRole="FromRole_HeadToSection"
+					ToRole="ToRole_HeadToSection"/><NavigationProperty Name="NavHeadToProcMaster" Relationship="ZDPMT_GW_INIT_STAT_UI_SRV.HeadToProcMaster"
+					FromRole="FromRole_HeadToProcMaster" ToRole="ToRole_HeadToProcMaster"/><NavigationProperty Name="NavF4SearchhelpSet" Relationship="ZDPMT_GW_INIT_STAT_UI_SRV.HeadToF4Help" FromRole="FromRole_HeadToF4Help"
+					ToRole="ToRole_HeadToF4Help"/></EntityType>
+			<EntityType Name="ProcessMaster" sap:content-version="1">
+				<Key><PropertyRef Name="Projid"/><PropertyRef Name="Process"/></Key><Property Name="Mandt" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Client" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Projid" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Project ID" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Process" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Process ID" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="SectionId" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Section ID"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Fieldname" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Field Name"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="LabelName" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Label" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Sequence" Type="Edm.String" Nullable="false" MaxLength="6" sap:unicode="false" sap:label="Sequence" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Type" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Type" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Datatype" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Data Type" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="FieldType" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Field Type" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Length" Type="Edm.String" Nullable="false" MaxLength="6" sap:unicode="false" sap:label="Length" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Visibility" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Visibility"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Uifilter" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Single-Character Flag"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Dataelement" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Data element"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="SectionName" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Section Name"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="SectionType" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Section type"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="SectionSeqNum" Type="Edm.String" Nullable="false" MaxLength="7" sap:unicode="false" sap:label="Section Sequence Number"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Ind" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Indicator" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="ProjectDetails" sap:content-version="1">
+				<Key><PropertyRef Name="ProjectId"/></Key><Property Name="Mandt" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Client" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="ProjectId" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Data element for Project ID"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="ProjectDesc" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Project description"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="SectionDetails" sap:content-version="1">
+				<Key><PropertyRef Name="Projid"/><PropertyRef Name="Process"/></Key><Property Name="Mandt" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Client" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Projid" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Project ID" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Process" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Process" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="SectionId" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Section ID"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="SectionName" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Section Name"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="SectionSeqNum" Type="Edm.String" Nullable="false" MaxLength="7" sap:unicode="false" sap:label="Section Sequence Number"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="UIFilter" sap:content-version="1">
+				<Key><PropertyRef Name="Value"/></Key><Property Name="Value" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false"/></EntityType>
+			<EntityType Name="TimeSheetHeader" sap:content-version="1">
+				<Key><PropertyRef Name="Projectid"/><PropertyRef Name="Userid"/><PropertyRef Name="Role"/></Key><Property Name="Mandt" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Client" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Projectid" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="ProjectID" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Userid" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="User Name" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Role" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Role" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Processid" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Processid" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><NavigationProperty Name="NavTsHeadToItem" Relationship="ZDPMT_GW_INIT_STAT_UI_SRV.TsHeadToItem" FromRole="FromRole_TsHeadToItem"
+					ToRole="ToRole_TsHeadToItem"/></EntityType>
+			<EntityType Name="TimeSheetItem" sap:content-version="1">
+				<Key><PropertyRef Name="Projectid"/><PropertyRef Name="Userid"/><PropertyRef Name="Role"/><PropertyRef Name="Processid"/></Key><Property Name="Mandt" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Client"/><Property Name="TeamRole" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Single-Character Flag"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Projectid" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="ProjectID"/><Property Name="Userid" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="User Name"/><Property Name="Role" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Role"/><Property Name="TimesheetType" Type="Edm.String" MaxLength="1" sap:unicode="false" sap:label="Time Sheet Type"/><Property Name="Ricefid" Type="Edm.String" MaxLength="20" sap:unicode="false" sap:label="RICEFID"/><Property Name="Taskid" Type="Edm.String" MaxLength="20" sap:unicode="false" sap:label="Task"/><Property Name="TaskDescription" Type="Edm.String" MaxLength="100" sap:unicode="false" sap:label="Task Description"/><Property Name="HoursAllocated" Type="Edm.Int32" sap:unicode="false" sap:label="Hours Worked"/><Property Name="HoursAvailblty" Type="Edm.Int32" sap:unicode="false" sap:label="Hours Avalibility"/><Property Name="HoursBooked" Type="Edm.Int32" sap:unicode="false" sap:label="Hours Booked"/><Property Name="Datefield" Type="Edm.String" MaxLength="8" sap:unicode="false" sap:label="Date"/><Property Name="TaskvalStDate" Type="Edm.String" MaxLength="8" sap:unicode="false" sap:label="St.Date"/><Property Name="TaskvalEnDate" Type="Edm.String" MaxLength="8" sap:unicode="false" sap:label="En.Date"/><Property Name="Comments" Type="Edm.String" MaxLength="100" sap:unicode="false" sap:label="Comments"/><Property Name="Processid" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Processid"
+					sap:filterable="false"/></EntityType>
+			<EntityType Name="F4Taskids" sap:content-version="1">
+				<Key><PropertyRef Name="Projectid"/><PropertyRef Name="Processid"/><PropertyRef Name="Ricefid"/></Key><Property Name="Projectid" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="ProjectID"/><Property Name="Processid" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="ProcessID"/><Property Name="Ricefid" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="RICEFID"/><Property Name="Taskid" Type="Edm.String" MaxLength="20" sap:unicode="false" sap:label="Task"/><Property Name="TimesheetType" Type="Edm.String" MaxLength="1" sap:unicode="false" sap:label="Time Sheet Type"/><Property Name="TaskDescription" Type="Edm.String" MaxLength="100" sap:unicode="false" sap:label="Task Description"/></EntityType>
+			<Association Name="TsHeadToItem" sap:content-version="1"><End Type="ZDPMT_GW_INIT_STAT_UI_SRV.TimeSheetHeader" Multiplicity="*" Role="FromRole_TsHeadToItem"/><End Type="ZDPMT_GW_INIT_STAT_UI_SRV.TimeSheetItem" Multiplicity="*" Role="ToRole_TsHeadToItem"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_TsHeadToItem"><PropertyRef Name="Projectid"/><PropertyRef Name="Userid"/><PropertyRef Name="Role"/></Principal>
+					<Dependent Role="ToRole_TsHeadToItem"><PropertyRef Name="Projectid"/><PropertyRef Name="Userid"/><PropertyRef Name="Role"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="HeadToProcMaster" sap:content-version="1"><End Type="ZDPMT_GW_INIT_STAT_UI_SRV.HeaderDetails" Multiplicity="*" Role="FromRole_HeadToProcMaster"/><End Type="ZDPMT_GW_INIT_STAT_UI_SRV.ProcessMaster" Multiplicity="*" Role="ToRole_HeadToProcMaster"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_HeadToProcMaster"><PropertyRef Name="Process"/><PropertyRef Name="Projid"/></Principal>
+					<Dependent Role="ToRole_HeadToProcMaster"><PropertyRef Name="Process"/><PropertyRef Name="Projid"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="HeadToSection" sap:content-version="1"><End Type="ZDPMT_GW_INIT_STAT_UI_SRV.HeaderDetails" Multiplicity="*" Role="FromRole_HeadToSection"/><End Type="ZDPMT_GW_INIT_STAT_UI_SRV.SectionDetails" Multiplicity="*" Role="ToRole_HeadToSection"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_HeadToSection"><PropertyRef Name="Process"/><PropertyRef Name="Projid"/></Principal>
+					<Dependent Role="ToRole_HeadToSection"><PropertyRef Name="Process"/><PropertyRef Name="Projid"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="HeadToF4Help" sap:content-version="1"><End Type="ZDPMT_GW_INIT_STAT_UI_SRV.HeaderDetails" Multiplicity="*" Role="FromRole_HeadToF4Help"/><End Type="ZDPMT_GW_INIT_STAT_UI_SRV.F4Searchhelp" Multiplicity="*" Role="ToRole_HeadToF4Help"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_HeadToF4Help"><PropertyRef Name="Process"/><PropertyRef Name="Projid"/></Principal>
+					<Dependent Role="ToRole_HeadToF4Help"><PropertyRef Name="Process"/><PropertyRef Name="Projid"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<EntityContainer Name="ZDPMT_GW_INIT_STAT_UI_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx"><EntitySet Name="F4SearchhelpSet" EntityType="ZDPMT_GW_INIT_STAT_UI_SRV.F4Searchhelp" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="UserProcessSet" EntityType="ZDPMT_GW_INIT_STAT_UI_SRV.UserProcess" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="UserDetailsSet" EntityType="ZDPMT_GW_INIT_STAT_UI_SRV.UserDetails" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="HeaderDetailsSet" EntityType="ZDPMT_GW_INIT_STAT_UI_SRV.HeaderDetails" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="ProcessMasterSet" EntityType="ZDPMT_GW_INIT_STAT_UI_SRV.ProcessMaster" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="ProjectDetailsSet" EntityType="ZDPMT_GW_INIT_STAT_UI_SRV.ProjectDetails" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="SectionDetailsSet" EntityType="ZDPMT_GW_INIT_STAT_UI_SRV.SectionDetails" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="UIFilterSet" EntityType="ZDPMT_GW_INIT_STAT_UI_SRV.UIFilter" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="TimeSheetHeaderSet" EntityType="ZDPMT_GW_INIT_STAT_UI_SRV.TimeSheetHeader" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="TimeSheetItemSet" EntityType="ZDPMT_GW_INIT_STAT_UI_SRV.TimeSheetItem" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="F4TaskidsSet" EntityType="ZDPMT_GW_INIT_STAT_UI_SRV.F4Taskids" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+				<AssociationSet Name="HeadToF4HelpSet" Association="ZDPMT_GW_INIT_STAT_UI_SRV.HeadToF4Help" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="HeaderDetailsSet" Role="FromRole_HeadToF4Help"/><End EntitySet="F4SearchhelpSet" Role="ToRole_HeadToF4Help"/></AssociationSet>
+				<AssociationSet Name="TsHeadToItemSet" Association="ZDPMT_GW_INIT_STAT_UI_SRV.TsHeadToItem" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="TimeSheetHeaderSet" Role="FromRole_TsHeadToItem"/><End EntitySet="TimeSheetItemSet" Role="ToRole_TsHeadToItem"/></AssociationSet>
+				<AssociationSet Name="HeadToSectionSet" Association="ZDPMT_GW_INIT_STAT_UI_SRV.HeadToSection" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="HeaderDetailsSet" Role="FromRole_HeadToSection"/><End EntitySet="SectionDetailsSet" Role="ToRole_HeadToSection"/></AssociationSet>
+				<AssociationSet Name="HeadToProcMasterSet" Association="ZDPMT_GW_INIT_STAT_UI_SRV.HeadToProcMaster" sap:creatable="false"
+					sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="HeaderDetailsSet" Role="FromRole_HeadToProcMaster"/><End EntitySet="ProcessMasterSet" Role="ToRole_HeadToProcMaster"/></AssociationSet>
+			</EntityContainer><atom:link rel="self" href="https://webidecp-p1942791514trial.dispatcher.hanatrial.ondemand.com/destinations/DEF/sap/opu/odata/sap/ZDPMT_GW_INIT_STAT_UI_SRV/$metadata"
+				xmlns:atom="http://www.w3.org/2005/Atom"/><atom:link rel="latest-version" href="https://webidecp-p1942791514trial.dispatcher.hanatrial.ondemand.com/destinations/DEF/sap/opu/odata/sap/ZDPMT_GW_INIT_STAT_UI_SRV/$metadata"
+				xmlns:atom="http://www.w3.org/2005/Atom"/></Schema>
+	</edmx:DataServices>
+</edmx:Edmx>

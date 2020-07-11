@@ -1,0 +1,213 @@
+<mvc:View controllerName="fi.pms.solution.ZFI_PMS_SOL.controller.viewAdd" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	xmlns:u="sap.ui.unified" xmlns:l="sap.ui.layout" xmlns:html="http://www.w3.org/1999/xhtml">
+	<App>
+		<Page title="Add Task Allocation" enableScrolling="true" showNavButton="false" navButtonPress="onNavBack">
+			<Panel expandable="true" expanded="false" headerText="Add Task" id="idAddTask">
+				<Toolbar>
+					<ToolbarSpacer/>
+					<Button tooltip="{i18>addSection}" icon="sap-icon://add" class="sapUiSmallMarginEnd" press="onAddRow"/>
+				</Toolbar>
+				<Table id="AddTaskTab" items="{viewData>/UserScreen}">
+					<columns>
+						<Column hAlign="Left" width="15%">
+							<Text text="RICEF ID"/>
+						</Column>
+						<Column hAlign="Left" width="15%">
+							<Text text="Task ID"/>
+						</Column>
+						<Column hAlign="Left" width="15%">
+							<Text text="User ID"/>
+						</Column>
+						<Column hAlign="Left" width="25%">
+							<Text text="Comments"/>
+						</Column>
+						<Column hAlign="Left" width="10%">
+							<Text text="Start Date"/>
+						</Column>
+						<Column hAlign="Left" width="10%">
+							<Text text="End Date"/>
+						</Column>
+						<Column hAlign="Left" width="5%">
+							<Text text="Hours"/>
+						</Column>
+						<!--<Column hAlign="Left" width="14%">
+							<Text text="Resource Name"/>
+						</Column>-->
+						<Column hAlign="Left" width="6%">
+							<Text text="Delete"/>
+						</Column>
+					</columns>
+					<items>
+						<ColumnListItem vAlign="Top">
+							<!--	<Select width="10rem" items="{viewData>/UserScreen}">
+									<core:Item text="{viewData>RICEF}" key="{viewData>Projid}"/>
+								</Select>
+								<Select width="10rem" items="{viewData>/UserScreen}">
+									<core:Item text="{viewData>Task}" key="{viewData>Username}"/>
+								</Select>
+								<Select width="10rem" items="{viewData>/UserScreen}">
+									<core:Item text="{viewData>}" key="{viewData>Username}"/>
+								</Select>
+								<Select width="10rem" items="{viewData>/UserScreen}">
+									<core:Item text="{viewData>Display}" key="{viewData>Username}"/>
+								</Select>-->
+							<cells>
+								<Select width="10rem" items="{ path: 'TaskRicefModel>/results',templateShareable:false}" change="onChangeRicefId"
+									selectedKey="{viewData>Ricefid}">
+									<core:Item text="{TaskRicefModel>Ricefid}" key="{TaskRicefModel>Ricefid}"/>
+								</Select>
+								<!--	<Select width="10rem" items="{TaskRicefModel>/TimesheetTypeP}" change="onChangeTask">
+									<core:Item text="{TaskRicefModel>TaskDescription}" key="{TaskRicefModel>Taskid}"/>
+								</Select>-->
+								<Select width="10rem" items="{ path: 'TaskRicefModel>/TimesheetTypeP',templateShareable:false}" change="onChangeTask"
+									selectedKey="{viewData>Taskid}">
+									<core:Item text="{TaskRicefModel>TaskDescription}" key="{TaskRicefModel>Taskid}"/>
+								</Select>
+								<Select width="10rem" items="{userIdModel>/results}">
+									<core:Item text="{userIdModel>Bname}" key="{userIdModel>Bname}"/>
+								</Select>
+								<Input id="taskDesc" value="{viewData>Comments}"/>
+								<DatePicker id="sDate"
+									value="{path:'viewData>TaskvalStDate', type:'sap.ui.model.type.Date', formatOptions: { style: 'medium', strictParsing: true, UTC: true}}"
+									displayFormat="short" change="handleChange" class="sapUiSmallMarginBottom"/>
+								<DatePicker id="eDate"
+									value="{path:'viewData>TaskvalEnDate', type:'sap.ui.model.type.Date', formatOptions: { style: 'medium', strictParsing: true, UTC: true}}"
+									displayFormat="short" change="handleChange" class="sapUiSmallMarginBottom"/>
+								<Input id="alloHours" value="{viewData>HoursAllocated}"/>
+								<!--	<MultiComboBox selectionChange="handleSelectionChange" selectionFinish="handleSelectionFinish"
+									items="{path:'/UserScreen',sorter:{path:'Name'}}">
+									<core:Item key="{Projectid}" text="{Name}"/>
+								</MultiComboBox>-->
+								<Button tooltip="Delete" icon="sap-icon://delete" class="sapUiSmallMarginEnd" press="onDeleteRow"/>
+							</cells>
+						</ColumnListItem>
+					</items>
+				</Table>
+			</Panel>
+			<Panel expandable="true" expanded="false" headerText="Add Miscellaneous" id="idAddMisc">
+				<Toolbar>
+					<ToolbarSpacer/>
+					<Button tooltip="{i18>addSection}" icon="sap-icon://add" class="sapUiSmallMarginEnd" press="onAddRowMisc"/>
+				</Toolbar>
+				<Table id="AddMiscTab" items="{viewDataMisc>/UserScreenMisc}">
+					<columns>
+						<Column hAlign="Left" width="15%">
+							<Text text="Task ID"/>
+						</Column>
+						<Column hAlign="Left" width="15%">
+							<Text text="User ID"/>
+						</Column>
+						<Column hAlign="Left" width="25%">
+							<Text text="Comments"/>
+						</Column>
+						<Column hAlign="Left" width="10%">
+							<Text text="Start Date"/>
+						</Column>
+						<Column hAlign="Left" width="10%">
+							<Text text="End Date"/>
+						</Column>
+						<Column hAlign="Left" width="5%">
+							<Text text="Hours"/>
+						</Column>
+						<!--<Column hAlign="Left" width="14%">
+							<Text text="Resource Name"/>
+						</Column>-->
+						<Column hAlign="Left" width="6%">
+							<Text text="Delete"/>
+						</Column>
+					</columns>
+					<items>
+						<ColumnListItem vAlign="Top">
+							<!--	<Select width="10rem" items="{viewData>/UserScreen}">
+									<core:Item text="{viewData>RICEF}" key="{viewData>Projid}"/>
+								</Select>
+								<Select width="10rem" items="{viewData>/UserScreen}">
+									<core:Item text="{viewData>Task}" key="{viewData>Username}"/>
+								</Select>
+								<Select width="10rem" items="{viewData>/UserScreen}">
+									<core:Item text="{viewData>}" key="{viewData>Username}"/>
+								</Select>
+								<Select width="10rem" items="{viewData>/UserScreen}">
+									<core:Item text="{viewData>Display}" key="{viewData>Username}"/>
+								</Select>-->
+							<cells>
+								<!--	<Select width="10rem" items="{TaskRicefModel>/TimesheetTypeM}" change="onChangeTask">
+									<core:Item text="{TaskRicefModel>TaskDescription}" key="{TaskRicefModel>Taskid}"/>
+								</Select>-->
+								<Select width="10rem" items="{ path: 'TaskRicefModel>/TimesheetTypeM',templateShareable:false}" change="onChangeTaskMisc"
+									selectedKey="{viewDataMisc>Taskid}">
+									<core:Item text="{TaskRicefModel>TaskDescription}" key="{TaskRicefModel>Taskid}"/>
+								</Select>
+								<Select width="10rem" items="{userIdModel>/results}">
+									<core:Item text="{userIdModel>Bname}" key="{userIdModel>Bname}"/>
+								</Select>
+								<Input id="taskDescMisc" value="{viewDataMisc>Comments}"/>
+								<DatePicker id="sDateMisc"
+									value="{path:'viewDataMisc>TaskvalStDate', type:'sap.ui.model.type.Date', formatOptions: { style: 'medium', strictParsing: true, UTC: true}}"
+									displayFormat="short" change="handleChange" class="sapUiSmallMarginBottom"/>
+								<DatePicker id="eDateMisc"
+									value="{path:'viewDataMisc>TaskvalEnDate', type:'sap.ui.model.type.Date', formatOptions: { style: 'medium', strictParsing: true, UTC: true}}"
+									displayFormat="short" change="handleChange" class="sapUiSmallMarginBottom"/>
+								<Input id="alloHoursMisc" value="{viewDataMisc>HoursAllocated}"/>
+								<!--	<MultiComboBox selectionChange="handleSelectionChange" selectionFinish="handleSelectionFinish"
+									items="{path:'/UserScreen',sorter:{path:'Name'}}">
+									<core:Item key="{Projectid}" text="{Name}"/>
+								</MultiComboBox>-->
+								<Button tooltip="Delete" icon="sap-icon://delete" class="sapUiSmallMarginEnd" press="onDeleteRowMisc"/>
+							</cells>
+						</ColumnListItem>
+					</items>
+				</Table>
+				<!--<Table id="AddMiscTab" items="{viewDataMisc>/UserScreenMisc}">
+					<columns>
+						<Column hAlign="Left" width="20%">
+							<Text text="Task ID"/>
+						</Column>
+						<Column hAlign="Left" width="30%">
+							<Text text="Comments"/>
+						</Column>
+						<Column hAlign="Left" width="10%">
+							<Text text="Start Date"/>
+						</Column>
+						<Column hAlign="Left" width="10%">
+							<Text text="End Date"/>
+						</Column>
+						<Column hAlign="Left" width="10%">
+							<Text text="Hours"/>
+						</Column>
+						<Column hAlign="Left" width="14%">
+							<Text text="Resource Name"/>
+						</Column>
+						<Column hAlign="Left" width="6%">
+							<Text text="Delete"/>
+						</Column>
+					</columns>
+					<items>
+						<ColumnListItem vAlign="Top">
+							<cells>
+								<Select width="10rem" items="{TaskRicefModel>/TimesheetTypeM}" selectedKey="{viewDataMisc>Taskid}" change="onChangeTask">
+									<core:Item text="{TaskRicefModel>TaskDescription}" key="{TaskRicefModel>Taskid}"/>
+								</Select>
+								<Input id="taskDesc1" value="{viewDataMisc>Comments}"/>
+								<DatePicker id="msDate" value="{viewDataMisc>TaskvalStDate}" displayFormat="short" change="handleChange" class="sapUiSmallMarginBottom"/>
+								<DatePicker id="meDate" value="{viewDataMisc>TaskvalEnDate}" displayFormat="short" change="handleChange" class="sapUiSmallMarginBottom"/>
+								<Input id="malloHours"/>
+								<MultiComboBox selectionChange="handleSelectionChange" selectionFinish="handleSelectionFinish"
+									items="{path:'/UserScreenMisc',sorter:{path:'Name'}}">
+									<core:Item key="{Projectid}" text="{Name}"/>
+								</MultiComboBox>
+								<Button tooltip="Delete" icon="sap-icon://delete" class="sapUiSmallMarginEnd" press="onDeleteRowMisc"/>
+							</cells>
+						</ColumnListItem>
+					</items>
+				</Table>-->
+			</Panel>
+			<footer>
+				<Toolbar>
+					<ToolbarSpacer/>
+					<Button text="Submit" class="sapUiSmallMarginEnd" press="onSubmit"/>
+				</Toolbar>
+			</footer>
+		</Page>
+	</App>
+</mvc:View>

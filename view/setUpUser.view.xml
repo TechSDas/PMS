@@ -1,0 +1,89 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	controllerName="fi.pms.solution.ZFI_PMS_SOL.controller.setUpUser" xmlns:html="http://www.w3.org/1999/xhtml">
+	<App>
+		<pages>
+			<Page title="{i18n>USER}" showNavButton="true" navButtonPress="onNavBack">
+				<content>
+					<Table id="idProductsTableEditMode" mode="MultiSelect" visible="false"
+						class="sapUiSizeCompact sapUiNoContentPadding sapUiNoMarginTop sapUiNoMarginEnd sapUiNoMarginBottom sapUiNoMarginBegin">
+						<headerToolbar>
+							<Toolbar>
+								<ToolbarSpacer/>
+								<FileUploader xmlns="sap.ui.unified" uploadUrl="" buttonText="" maximumFileSize="1" buttonOnly="true" iconOnly="true"
+									icon="sap-icon://upload" change="onChangeFUP" uploadComplete="onUploadCompleteFUP" typeMissmatch="onFailedFUP" fileSizeExceed="onFailedFUP"
+									uploadAborted="onFailedFUP" filenameLengthExceed="onFailedFUP" class="sapUiSmallMarginEnd"/>
+								<Button icon="sap-icon://download" type="Transparent" class="sapUiSmallMarginEnd" press="onDataExport1"/>
+								<Button icon="sap-icon://education" type="Transparent" tooltip="Read Mode" press="onUserRead"/>
+							</Toolbar>
+						</headerToolbar>
+						<columns>
+							<Column>
+								<Text text="Process"/>
+							</Column>
+							<Column>
+								<Text text="User ID"/>
+							</Column>
+							<Column>
+								<Text text="Role"/>
+							</Column>
+							<Column>
+								<Text text="Access"/>
+							</Column>
+							<Column hAlign="Right" width="4rem" demandPopin="true"></Column>
+						</columns>
+						<items>
+							<ColumnListItem>
+								<Select items="{viewData>/UserScreen}">
+									<core:Item text="{viewData>Process}" key="{viewData>Projid}"/>
+								</Select>
+								<Select items="{viewData>/UserScreen}">
+									<core:Item text="{viewData>Username}" key="{viewData>Username}"/>
+								</Select>
+								<Select items="{viewData>/UserScreen}">
+									<core:Item text="{viewData>Change}" key="{viewData>Username}"/>
+								</Select>
+								<Select items="{viewData>/UserScreen}">
+									<core:Item text="{viewData>Display}" key="{viewData>Username}"/>
+								</Select>
+								<Button icon="sap-icon://delete" type="Transparent"/>
+							</ColumnListItem>
+						</items>
+					</Table>
+					<Table id="idProductsTableReadMode" mode="MultiSelect" visible="true"
+						class="sapUiSizeCompact sapUiNoContentPadding sapUiNoMarginTop sapUiNoMarginEnd sapUiNoMarginBottom sapUiNoMarginBegin">
+						<headerToolbar>
+							<Toolbar>
+								<ToolbarSpacer/>
+								<Button icon="sap-icon://edit" type="Transparent" tooltip="Read Mode" press="onUserEdit"/>
+							</Toolbar>
+						</headerToolbar>
+						<columns>
+							<Column>
+								<Text text="Process"/>
+							</Column>
+							<Column>
+								<Text text="User ID"/>
+							</Column>
+							<Column>
+								<Text text="Role"/>
+							</Column>
+							<Column>
+								<Text text="Access"/>
+							</Column>
+							<Column hAlign="Right" width="4rem" demandPopin="true"></Column>
+						</columns>
+						<items>
+							<ColumnListItem>
+								<Text text="{viewData>Process}"/>
+								<Text text="{viewData>Username}"/>
+								<Text text="{viewData>Change}"/>
+								<Text text="{viewData>Display}"/>
+								<Button icon="sap-icon://delete" type="Transparent"/>
+							</ColumnListItem>
+						</items>
+					</Table>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

@@ -1,0 +1,285 @@
+<core:FragmentDefinition xmlns:custom="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc" xmlns:fb="sap.ui.comp.filterbar" displayBlock="true" xmlns="sap.m" height="100%"
+	xmlns:smartForm="sap.ui.comp.smartform" xmlns:smartTable="sap.ui.comp.smarttable" xmlns:smartField="sap.ui.comp.smartfield"
+	class="sapUiSizeCompact sapUiNoContentPadding sapUiNoMarginTop sapUiNoMarginEnd sapUiNoMarginBottom sapUiNoMarginBegin">
+	<Panel expandable="true" expanded="true" headerText="Select Process" id="idselprocess"
+		class="sapUiSizeCompact sapUiNoContentPadding sapUiNoMarginTop sapUiNoMarginEnd sapUiNoMarginBottom sapUiNoMarginBegin">
+		<content>
+			<!--<fb:FilterBar reset="onReset" search="onContinue" showRestoreButton="true" showClearButton="true" class="filterbarbackgroundcolor">-->
+			<!--	<fb:filterGroupItems>-->
+			<!--		<fb:FilterGroupItem groupName="__$INTERNAL$" name="A" label="Project" partOfCurrentVariant="true" visibleInFilterBar="true">-->
+			<!--			<fb:control>-->
+			<!--				<Select width="10rem" items="{viewData>/Projects}" change="onChange">-->
+			<!--					<core:Item text="{viewData>Description}" key="{viewData>Project}"/>-->
+			<!--				</Select>-->
+			<!--			</fb:control>-->
+			<!--		</fb:FilterGroupItem>-->
+			<!--		<fb:FilterGroupItem groupName="__$INTERNAL$" name="B" partOfCurrentVariant="true" visibleInFilterBar="true">-->
+			<!--			<fb:control>-->
+			<!--				<Button icon="sap-icon://add" type="Transparent" text="{i18n>addproject}" press="onAddProcess"/>-->
+			<!--			</fb:control>-->
+			<!--		</fb:FilterGroupItem>-->
+			<!--		<fb:FilterGroupItem groupName="__$INTERNAL$" name="C" label="Process" labelTooltip="Tooltip Example" partOfCurrentVariant="true"-->
+			<!--			visibleInFilterBar="true">-->
+			<!--			<fb:control>-->
+			<!--				<Select width="10rem" items="{viewData>/Pocesses}">-->
+			<!--					<core:Item text="{viewData>ProcessDesc}" key="{viewData>ProcessDesc}"/>-->
+			<!--				</Select>-->
+			<!--			</fb:control>-->
+			<!--		</fb:FilterGroupItem>-->
+			<!--	</fb:filterGroupItems>-->
+			<!--</fb:FilterBar>-->
+			<FlexBox id="idflex" height="10px" alignItems="Center" justifyContent="Center" class="sapUiSmallMargin">
+				<items>
+					<Label text="Process" visible="true"/>
+					<ToolbarSpacer width="5px"/>
+					<Select id="idSelectProcess" items="{viewData>/UserScreen}" change="onContinue" forceSelection="false">
+						<!--Change by Varun on 03-03-2020-->
+						<!--Changed the key mapping from ProjectId to Process-->
+						<core:Item text="{viewData>ProcessDesc}" key="{viewData>Process}"/>
+					</Select>
+					<!--<ToolbarSpacer width="20px"/>-->
+					<!--<Button text="Go" type="Emphasized" press="onContinue"/>-->
+				</items>
+			</FlexBox>
+			<!--<FlexBox alignItems="End" class="sapUiMediumMarginBegin sapUiMediumMarginTop">-->
+			<!--	<VBox>-->
+			<!--		<HBox>-->
+			<!--			<Text text="{i18n>project}" width="5rem" id="txt112" class="sapUiSmallMarginEnd sapUiSmallMarginTop"/>-->
+			<!--			<ToolbarSpacer/>-->
+			<!--			<Select width="10rem" items="{viewData>/Projects}" change="onChange">-->
+			<!--				<core:Item text="{viewData>Description}" key="{viewData>Project}"/>-->
+			<!--			</Select>-->
+			<!--			<Button icon="sap-icon://add" text="{i18n>addproject}" class="sapUiMediumMarginBegin" press="onAddProcess"/>-->
+			<!--		</HBox>-->
+			<!--		<HBox class="sapUiMediumMarginTop">-->
+			<!--			<Text text="{i18n>process}" width="5rem" class="sapUiSmallMarginEnd sapUiSmallMarginTop"/>-->
+			<!--			<ToolbarSpacer/>-->
+			<!--			<Select width="10rem" items="{viewData>/Pocesses}">-->
+			<!--				<core:Item text="{viewData>Process}" key="{viewData>ProcessId}"/>-->
+			<!--			</Select>-->
+			<!--			<Button text="{i18n>continue}" width="9rem" class="sapUiMediumMarginBegin" press="onContinue"/>-->
+			<!--		</HBox>-->
+			<!--	</VBox>-->
+			<!--</FlexBox>-->
+		</content>
+	</Panel>
+	<!--<FlexBox height="120px" alignItems="End" justifyContent="Center">-->
+	<!--	<items>-->
+	<!--		<Button text="{i18n>continue}" type="Emphasized" class="sapUiSmallMarginEnd"/>-->
+	<!--	</items>-->
+	<!--</FlexBox>-->
+	<Panel expandable="true" expanded="false" headerText="Set Up Process" id="idsetprocess"
+		class="sapUiSizeCompact sapUiNoContentPadding sapUiNoMarginTop sapUiNoMarginEnd sapUiNoMarginBottom sapUiNoMarginBegin">
+		<!--<Toolbar>-->
+		<!--<ToolbarSpacer/>-->
+		<content>
+			<Table selectionChange="onChangeGetRowIndices" id="idProcessTable" mode="MultiSelect" fixedLayout="false" itemPress="onChangeGetRowIndices"
+				items="{viewData>/PocessesTable/NavHeadToProcMaster/results}" visible="false"
+				class="sapUiSizeCompact sapUiNoContentPadding sapUiNoMarginTop sapUiNoMarginEnd sapUiNoMarginBottom sapUiNoMarginBegin">
+				<!--mode="MultiSelect" added by Subhajit - 19.01.2020-->
+				<headerToolbar class="sapUiSizeCompact sapUiNoContentPadding sapUiNoMarginTop sapUiNoMarginEnd sapUiNoMarginBottom sapUiNoMarginBegin">
+					<OverflowToolbar>
+						<Button id="openMenu" text="Actions" press="onPressOpenMenu" type="Emphasized" icon="sap-icon://menu"/>
+						<!--<Button text="Download Template" enabled="true" icon="sap-icon://download" iconFirst="true" width="auto" visible="true"-->
+						<!--	iconDensityAware="false" press="onTemplateExport" type="Emphasized"/>-->
+						<!--<Button text="Assign Dropdown Values" enabled="true" width="auto" type="Emphasized" press="onAssignDom"/>-->
+						<!--<Button text="Add Section" press="onAddSection" type="Emphasized"/>-->
+						<ToolbarSpacer/>
+						<!--<Button icon="sap-icon://download" tooltip="{i18n>Download}" type="Transparent" press="onDataExport"/>-->
+						<!--<FileUploader xmlns="sap.ui.unified" uploadUrl="" buttonText="" tooltip="" maximumFileSize="1" buttonOnly="true" iconOnly="true"-->
+						<!--	icon="sap-icon://upload" type="Emphasized" change="onChangeFUP" uploadComplete="onUploadCompleteFUP" typeMissmatch="onFailedFUP"-->
+						<!--	fileSizeExceed="onFailedFUP" uploadAborted="onFailedFUP" filenameLengthExceed="onFailedFUP"/>-->
+						<Button tooltip="{i18>addSection}" icon="sap-icon://add" type="Emphasized" press="onAddRow"/>
+						<Button icon="sap-icon://education" tooltip="Read Mode" type="Emphasized" press="onRead"/>
+					</OverflowToolbar>
+				</headerToolbar>
+				<columns>
+					<Column width="3rem">
+						<Text text="Section Name" wrapping="true"/>
+					</Column>
+					<Column width="2rem">
+						<Text text="Section Type" wrapping="true"/>
+					</Column>
+					<Column>
+						<Text text="Section Sequence" wrapping="true"/>
+					</Column>
+					<Column width="40rem">
+						<Text text="Label Name" wrapping="true"/>
+					</Column>
+					<Column >
+						<Text text="Field Name" wrapping="true"/>
+					</Column>
+					<Column>
+						<Text text="Field Type"/>
+					</Column>
+					<Column>
+						<Text text="Data Type" wrapping="true"/>
+					</Column>
+					<Column width="auto">
+						<Text text="Length" wrapping="true"/>
+					</Column>
+					<Column width="auto">
+						<Text text="Field Sequence" wrapping="true"/>
+					</Column>
+					<Column width="10rem">
+						<Text text="Visibility" wrapping="true"/>
+					</Column>
+					<!--<Column>-->
+					<!--	<Text text="Key" wrapping="true"/>-->
+					<!--</Column>-->
+					<Column hAlign="Right" width="2rem" demandPopin="true"></Column>
+				</columns>
+				<items>
+					<ColumnListItem>
+						<Select items="{viewData>/PocessesTable/NavHeadToSection/results}" forceSelection="{= ${viewData>editable2} === true}"
+							change="onSecNameChange" selectedKey="{viewData>SectionId}">
+							<core:Item text="{viewData>SectionName}" key="{viewData>SectionId}"/>
+						</Select>
+						<!--<Select width="10rem" items="{viewData>/PocessesTable}">-->
+						<!--	<core:Item text="{viewData>SectionType}" key="{viewData>SectionType}"/>-->
+						<!--</Select>-->
+						<!--<Input value="{viewData>SectionName}" enabled="{viewData>Editable}"></Input> commented-->
+						<!--<Input value="{viewData>SectionType}" enabled="{viewData>Editable}"></Input> commented by Subhajit/18.01.2020-->
+						<!--Begin of Insert by Subhajit/18.01.2020-->
+						<!--<Select id="idSelectSectionType">-->
+						<!--	<core:Item key="0001" text="Form"/>-->
+						<!--	<core:Item key="0002" text="Table"/>-->
+						<!--</Select>-->
+						<Select id="idSelectSectionType" selectedKey="{viewData>SectionType}" forceSelection="{= ${viewData>editable2} === true}" width="70%"
+							items="{path:'viewData>/PocessesTable/NavF4SearchhelpSet/results', filters: [{path: 'FieldName', operator:'EQ', value1: 'SECTION_TYPE'}]}">
+							<core:Item text="{viewData>DdText}" key="{viewData>DomvalueL}"/>
+						</Select>
+						<!--End of Insert by Subhajit/18.01.2020-->
+						<Input value="{viewData>SectionSeqNum}" enabled="false" width="2rem"></Input>
+						<Input value="{viewData>LabelName}" enabled="{viewData>Editable}" showSuggestion="true" suggest="handleLNameSuggest"
+							suggestionItems="{path:'viewData>/PocessesTable/NavHeadToProcMaster/results' , templateShareable:false}">
+							<suggestionItems>
+								<core:Item text="{viewData>LabelName}"/>
+							</suggestionItems>
+						</Input>
+						<!--<Input value="{viewData>Fieldname}" enabled="{= ${viewData>Fieldname} === ''? true:false}"></Input>-->
+						<Input id="idFieldVal" change="onFieldNameChange" value="{viewData>Fieldname}" showSuggestion="true" suggest="handleFNameSuggest"
+							enabled="{= ${viewData>editable} === true}"
+							suggestionItems="{path:'viewData>/PocessesTable/NavHeadToProcMaster/results' , templateShareable:false}">
+							<suggestionItems>
+								<core:Item text="{viewData>Fieldname}"/>
+							</suggestionItems>
+						</Input>
+						<!--added by Subhajit/18.01.2020/enabled="false"-->
+						<!--<Input value=" {viewData>FieldType}" enabled="{viewData>Editable}"></Input> commented by Subhajit/18.01.2020-->
+						<!--<Select width="10rem" selectedKey="{viewData>Type}" enabled="{= ${viewData>editableT} === undefined}"-->
+						<Select width="10rem" selectedKey="{viewData>Type}" enabled="{viewData>editable}" forceSelection="{= ${viewData>editable2} === true}"
+							change="onFtypeChange"
+							items="{path:'viewData>/PocessesTable/NavF4SearchhelpSet/results', filters: [{path: 'FieldName', operator:'EQ', value1: 'TYPE'}]}">
+							<core:Item text="{viewData>DdText}" key="{viewData>DomvalueL}"/>
+						</Select>
+						<!--<Input value="{viewData>Datatype}" enabled="{viewData>Editable}"></Input> commented by Subhajit/18.01.2020-->
+						<Select selectedKey="{viewData>Datatype}" enabled="{= ${viewData>editableT} === undefined}"
+							forceSelection="{= ${viewData>editable2} === true}" change="onDtypeChange"
+							items="{path:'viewData>/PocessesTable/NavF4SearchhelpSet/results', filters: [{path: 'FieldName', operator:'EQ', value1: 'DATATYPE'}]}">
+							<core:Item text="{viewData>DdText}" key="{viewData>DomvalueL}"/>
+						</Select>
+						<Input type="Number" value="{viewData>Length}" enabled="{= ${viewData>editableT} === undefined}" liveChange="onLiveLengthChange"
+							change="onLengthChange" width="3rem"></Input>
+						<!--<Input type="Number" value="{viewData>Sequence}" -->
+						<!--<Input type="Number" value="{viewData>Sequence}" change="onSeqChange" enabled="false"></Input>-->
+						<Input type="Number" value="{viewData>Sequence}" enabled="false" width="2rem"></Input>
+						<!--<Input value="{viewData>Visibility}" enabled="{viewData>Editable}"></Input> commented by Subhajit/18.01.2020-->
+						<Select selectedKey="{viewData>Visibility}" tooltip="{viewData>Visibility}" forceSelection="{= ${viewData>editable2} === true}"
+							items="{path:'viewData>/PocessesTable/NavF4SearchhelpSet/results', filters: [{path: 'FieldName', operator:'EQ', value1: 'Visibility'}]}">
+							<core:Item text="{viewData>DdText}" key="{viewData>DomvalueL}"/>
+						</Select>
+						<!--<Select width="10rem" selectedKey="{viewData>keyFlag}" tooltip="{viewData>keyFlag}"-->
+						<!--	items="{path:'viewData>/PocessesTable/NavF4SearchhelpSet/results', filters: [{path: 'FieldName', operator:'EQ', value1: 'KEY_FLAG'}]}">-->
+						<!--	<core:Item text="{viewData>DdText}" key="{viewData>DomvalueL}"/>-->
+						<!--</Select>-->
+						<!--<Select width="10rem" selectedKey="{viewData>keyFlag}" tooltip="{viewData>keyFlag}" forceSelection="{= ${viewData>editable2} === true}">-->
+						<!--	<core:Item key="X" text="YES"/>-->
+						<!--	<core:Item key="" text="NO"/>-->
+						<!--</Select>-->
+						<Button icon="sap-icon://delete" type="Reject" press="onDeleteRow" visible="{= ${viewData>editable} === true}"/>
+					</ColumnListItem>
+				</items>
+			</Table>
+			<Table id="idProcessTableReadMode" items="{viewData>/PocessesTable/NavHeadToProcMaster/results}"
+				class="sapUiSizeCompact sapUiNoContentPadding sapUiNoMarginTop sapUiNoMarginEnd sapUiNoMarginBottom sapUiNoMarginBegin">
+				<headerToolbar class="sapUiSizeCompact sapUiNoContentPadding sapUiNoMarginTop sapUiNoMarginEnd sapUiNoMarginBottom sapUiNoMarginBegin">
+					<OverflowToolbar>
+						<Button text="Download Template" enabled="true" icon="sap-icon://download" iconFirst="true" width="auto" visible="true"
+							iconDensityAware="false" press="onTemplateExport" type="Emphasized"/>
+						<ToolbarSpacer/>
+						<Button icon="sap-icon://download" tooltip="{i18n>Download}" type="Emphasized" press="onDataExport"/>
+						<Button icon="sap-icon://edit" tooltip="Edit" type="Emphasized" press="onEdit"/>
+					</OverflowToolbar>
+				</headerToolbar>
+				<columns>
+					<Column>
+						<Text text="Section Name" wrapping="true"/>
+					</Column>
+					<Column>
+						<Text text="Section Type" wrapping="true"/>
+					</Column>
+					<Column>
+						<Text text="Section Sequence No" wrapping="true"/>
+					</Column>
+					<Column>
+						<Text text="Label Name" wrapping="true"/>
+					</Column>
+					<Column>
+						<Text text="Field Name" wrapping="true"/>
+					</Column>
+					<Column>
+						<Text text="Field Type" wrapping="true"/>
+					</Column>
+					<Column>
+						<Text text="Data Type" wrapping="true"/>
+					</Column>
+					<Column>
+						<Text text="Length" wrapping="true"/>
+					</Column>
+					<Column>
+						<Text text="Field Sequence" wrapping="true"/>
+					</Column>
+					<Column>
+						<Text text="Visibility" wrapping="true"/>
+					</Column>
+					<!--<Column>-->
+					<!--	<Text text="Key" wrapping="true"/>-->
+					<!--</Column>-->
+				</columns>
+				<items>
+					<ColumnListItem press="onChangeGetRowIndices">
+						<Text text="{viewData>SectionName}"/>
+						<Text text="{viewData>SectionType}"/>
+						<Text text="{viewData>SectionSeqNum}"/>
+						<Text text="{viewData>LabelName}"/>
+						<Text text="{viewData>Fieldname}"/>
+						<Text text="{path:'viewData>Type', formatter:'.formatter.getFieldTypeText'}"/>
+						<Text text="{viewData>Datatype}"/>
+						<Text text="{viewData>Length}"/>
+						<Text text="{viewData>Sequence}"/>
+						<Text text="{path:'viewData>Visibility', formatter:'.formatter.getVisibilityText'}"/>
+						<!--<Text text="{path:'viewData>keyFlag', formatter:'.formatter.getkeyValueText'}"/>-->
+						<!--<Text text="{viewData>keyFlag}"/>-->
+					</ColumnListItem>
+				</items>
+			</Table>
+			<FlexBox id="idSavePreviewMode" height="80px" alignItems="End" justifyContent="End" visible="false">
+				<items>
+					<Button text="Save" type="Unstyled" class="sapUiSmallMarginEnd" press="onSave"/>
+					<Button text="{i18n>ShowPreview}" type="Unstyled" class="sapUiSmallMarginEnd" press="onPreview"/>
+				</items>
+			</FlexBox>
+		</content>
+	</Panel>
+	<!--<Page enableScrolling="false">-->
+	<!--	<footer>-->
+	<!--		<Toolbar>-->
+	<!--			<ToolbarSpacer/>-->
+	<!--			<Button text="Save" class="sapUiSmallMarginEnd" press="onSave"/>-->
+	<!--			<Button text="{i18n>ShowPreview}" class="sapUiSmallMarginEnd" press="onPreview"/>-->
+	<!--		</Toolbar>-->
+	<!--	</footer>-->
+	<!--</Page>-->
+</core:FragmentDefinition>

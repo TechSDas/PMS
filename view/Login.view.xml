@@ -1,0 +1,37 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="fi.pms.solution.ZFI_PMS_SOL.controller.Login"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<App >
+		<pages>
+			<Page title="{i18>LOGIN}">
+				<content>
+					<Panel>
+						<headerToolbar>
+							<Toolbar>
+								<ToolbarSpacer/>
+								<Title text="Login"/>
+								<ToolbarSpacer/>
+							</Toolbar>
+						</headerToolbar>
+						<FlexBox height="100px" alignItems="Center" justifyContent="Center">
+							<items>
+								<VBox>
+									<HBox>
+										<Label text="Username" required="true"/>
+										<ToolbarSpacer width="5px"/>
+										<Input id="userName" type="Text" placeholder="User / Admin...."/>
+									</HBox>
+									<HBox>
+										<ToolbarSpacer width="75px"/>
+										<Button text="Forgot Password"/>
+										<ToolbarSpacer width="10px"/>
+										<Button text="Login" type="Accept" press="onLogin"/>
+									</HBox>
+								</VBox>
+							</items>
+						</FlexBox>
+					</Panel>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

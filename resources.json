@@ -1,0 +1,149 @@
+{
+    "resources": [
+        {
+            "name": "controller/smartTable-dbg.controller.js",
+            "isDebug": true
+        },
+        {
+            "name": "manifest.json"
+        },
+        {
+            "name": "model/models.js"
+        },
+        {
+            "name": "controller/smartTable.controller.js"
+        },
+        {
+            "name": "controller/setUpUser.controller.js"
+        },
+        {
+            "name": "controller/setUpProcess.controller.js"
+        },
+        {
+            "name": "controller/UseView.controller.js"
+        },
+        {
+            "name": "controller/MainAdmin.controller.js"
+        },
+        {
+            "name": "controller/Login.controller.js"
+        },
+        {
+            "name": "Utils/cloudflare2.js"
+        },
+        {
+            "name": "Utils/cloudflare.js"
+        },
+        {
+            "name": "serviceBinding.js"
+        },
+        {
+            "name": "Component.js"
+        },
+        {
+            "name": "manifest-bundle.zip"
+        },
+        {
+            "name": "Component-preload.js",
+            "merged": true
+        },
+        {
+            "name": "model/models-dbg.js",
+            "isDebug": true
+        },
+        {
+            "name": "i18n/i18n.properties",
+            "raw": "i18n/i18n.properties"
+        },
+        {
+            "name": "controller/setUpUser-dbg.controller.js",
+            "isDebug": true
+        },
+        {
+            "name": "controller/setUpProcess-dbg.controller.js",
+            "isDebug": true
+        },
+        {
+            "name": "controller/UseView-dbg.controller.js",
+            "isDebug": true
+        },
+        {
+            "name": "controller/MainAdmin-dbg.controller.js",
+            "isDebug": true
+        },
+        {
+            "name": "controller/Login-dbg.controller.js",
+            "isDebug": true
+        },
+        {
+            "name": "Utils/cloudflare2-dbg.js",
+            "isDebug": true
+        },
+        {
+            "name": "Utils/cloudflare-dbg.js",
+            "isDebug": true
+        },
+        {
+            "name": "serviceBinding-dbg.js",
+            "isDebug": true
+        },
+        {
+            "name": "Component-dbg.js",
+            "isDebug": true
+        },
+        {
+            "name": "../../../../sap-ui-version.json"
+        },
+        {
+            "name": "neo-app.json"
+        },
+        {
+            "name": "di.code-validation.core_issues.json"
+        },
+        {
+            "name": "localService/ZDPMT_GW_PMT_PROC_SRV/metadata.xml"
+        },
+        {
+            "name": "localService/ZDPMT_GW_INIT_STAT_UI_SRV/metadata.xml"
+        },
+        {
+            "name": "view/smartTable.view.xml"
+        },
+        {
+            "name": "view/setUpUser.view.xml"
+        },
+        {
+            "name": "view/setUpProcess.view.xml"
+        },
+        {
+            "name": "view/UseView.view.xml"
+        },
+        {
+            "name": "view/MainAdmin.view.xml"
+        },
+        {
+            "name": "view/Login.view.xml"
+        },
+        {
+            "name": "localService/metadata.xml"
+        },
+        {
+            "name": "css/style.css"
+        },
+        {
+            "name": "Fragments/Processes.fragment.xml"
+        },
+        {
+            "name": "Fragments/AssignDomain.fragment.xml"
+        },
+        {
+            "name": "Fragments/AddSection.fragment.xml"
+        },
+        {
+            "name": "Fragments/AddProcess.fragment.xml"
+        },
+        {
+            "name": "index.html"
+        }
+    ]
+}

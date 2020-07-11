@@ -1,0 +1,117 @@
+<edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+	xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData" Version="1.0">
+	<edmx:Reference xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+		Uri="https://webidecp-p1942791514trial.dispatcher.hanatrial.ondemand.com/destinations/DEF/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='FIORIAPP')/$value"><edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI"/></edmx:Reference>
+	<edmx:Reference xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+		Uri="https://webidecp-p1942791514trial.dispatcher.hanatrial.ondemand.com/destinations/DEF/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='FIORIAPP')/$value"><edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/></edmx:Reference>
+	<edmx:DataServices m:DataServiceVersion="2.0">
+		<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="ZDPMT_GW_PMT_PROC_SRV" xml:lang="en" sap:schema-version="1">
+			<EntityType Name="DynEnt" sap:value-list="true" sap:content-version="1">
+				<Key><PropertyRef Name="Mandt"/></Key><Property Name="Mandt" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="ASGNDATE" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="Date" sap:label="Date" sap:creatable="false"
+					sap:updatable="false" sap:filterable="false"/><Property Name="COMPLEXITY" Type="Edm.String" Nullable="false" MaxLength="100" sap:label="Character 100" sap:creatable="false"
+					sap:updatable="false" sap:filterable="false"/><Property Name="CRQ" Type="Edm.String" Nullable="false" MaxLength="50" sap:label="c" sap:creatable="false" sap:updatable="false"
+					sap:filterable="false"/><Property Name="DESCRIPTION" Type="Edm.String" Nullable="false" MaxLength="100" sap:label="Character 100" sap:creatable="false"
+					sap:updatable="false" sap:filterable="false"/><Property Name="FIELD_NAME1" Type="Edm.String" Nullable="false" MaxLength="30" sap:label="30 Characters" sap:creatable="false"
+					sap:updatable="false" sap:filterable="false"/><Property Name="MIDDLEWARE" Type="Edm.String" Nullable="false" MaxLength="50" sap:label="c" sap:creatable="false" sap:updatable="false"
+					sap:filterable="false" sap:value-list="standard"/><Property Name="OBJSTAT" Type="Edm.String" Nullable="false" MaxLength="50" sap:label="c" sap:creatable="false" sap:updatable="false"
+					sap:filterable="false"/><Property Name="PHASE" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Char20" sap:creatable="false" sap:updatable="false"
+					sap:filterable="false" sap:value-list="standard"/><Property Name="PROCESSAREA" Type="Edm.String" Nullable="false" MaxLength="50" sap:label="c" sap:creatable="false" sap:updatable="false"
+					sap:filterable="false"/><Property Name="PROJID" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Char20" sap:creatable="false" sap:updatable="false"
+					sap:filterable="false" sap:value-list="standard"/><Property Name="REUSETYP" Type="Edm.String" Nullable="false" MaxLength="50" sap:label="c" sap:creatable="false" sap:updatable="false"
+					sap:filterable="false" sap:value-list="standard"/><Property Name="RICEFW_ID" Type="Edm.String" Nullable="false" MaxLength="50" sap:label="c" sap:creatable="false" sap:updatable="false"
+					sap:filterable="false"/><Property Name="RICEFW_TYP" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Character Field with Length 10"
+					sap:creatable="false" sap:updatable="false" sap:filterable="false" sap:value-list="standard"/><Property Name="TEAM" Type="Edm.String" Nullable="false" MaxLength="100" sap:label="Character 100" sap:creatable="false"
+					sap:updatable="false" sap:filterable="false" sap:value-list="standard"/></EntityType>
+			<EntityContainer Name="ZDPMT_GW_PMT_PROC_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx"><EntitySet Name="DynEntSet" EntityType="ZDPMT_GW_PMT_PROC_SRV.DynEnt" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:searchable="true" sap:pageable="false" sap:addressable="false" sap:content-version="1" sap:semantics="fixed-values"/></EntityContainer>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZDPMT_GW_PMT_PROC_SRV.DynEnt">
+				<Annotation Term="UI.HeaderInfo">
+					<Record><PropertyValue Property="TypeName" String="DynEnt"/><PropertyValue Property="TypeNamePlural" String="DynEnts"/></Record>
+				</Annotation>
+				<Annotation Term="UI.LineItem"><Collection/></Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZDPMT_GW_PMT_PROC_SRV.DynEntSet"><Annotation Term="Common.Label" String="Date"/></Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZDPMT_GW_PMT_PROC_SRV.DynEntSet"><Annotation Term="Common.Label" String="Complexity"/></Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZDPMT_GW_PMT_PROC_SRV.DynEntSet"><Annotation Term="Common.Label" String="CRQ"/></Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZDPMT_GW_PMT_PROC_SRV.DynEntSet"><Annotation Term="Common.Label" String="Description"/></Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZDPMT_GW_PMT_PROC_SRV.DynEntSet"><Annotation Term="Common.Label" String="Field Name"/></Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZDPMT_GW_PMT_PROC_SRV.DynEntSet"><Annotation Term="Common.Label" String="Middleware"/></Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target=".DynEnt/MIDDLEWARE">
+				<Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+					<Record><PropertyValue Property="CollectionPath" String="DynEntSet"/><PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="MIDDLEWARE"/><PropertyValue Property="ValueListProperty" String="MIDDLEWARE"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZDPMT_GW_PMT_PROC_SRV.DynEntSet"><Annotation Term="Common.Label" String="Object Status"/></Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZDPMT_GW_PMT_PROC_SRV.DynEntSet"><Annotation Term="Common.Label" String="Phase"/></Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target=".DynEnt/PHASE">
+				<Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+					<Record><PropertyValue Property="CollectionPath" String="DynEntSet"/><PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="PHASE"/><PropertyValue Property="ValueListProperty" String="PHASE"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZDPMT_GW_PMT_PROC_SRV.DynEntSet"><Annotation Term="Common.Label" String="Process Area"/></Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZDPMT_GW_PMT_PROC_SRV.DynEntSet"><Annotation Term="Common.Label" String="ProjectID"/></Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target=".DynEnt/PROJID">
+				<Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+					<Record><PropertyValue Property="CollectionPath" String="DynEntSet"/><PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="PROJID"/><PropertyValue Property="ValueListProperty" String="PROJID"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZDPMT_GW_PMT_PROC_SRV.DynEntSet"><Annotation Term="Common.Label" String="Reuse Type"/></Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target=".DynEnt/REUSETYP">
+				<Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+					<Record><PropertyValue Property="CollectionPath" String="DynEntSet"/><PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="REUSETYP"/><PropertyValue Property="ValueListProperty" String="REUSETYP"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZDPMT_GW_PMT_PROC_SRV.DynEntSet"><Annotation Term="Common.Label" String="Ricef ID"/></Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZDPMT_GW_PMT_PROC_SRV.DynEntSet"><Annotation Term="Common.Label" String="Ricef Type"/></Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target=".DynEnt/RICEFW_TYP">
+				<Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+					<Record><PropertyValue Property="CollectionPath" String="DynEntSet"/><PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="RICEFW_TYP"/><PropertyValue Property="ValueListProperty" String="RICEFW_TYP"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZDPMT_GW_PMT_PROC_SRV.DynEntSet"><Annotation Term="Common.Label" String="Team"/></Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target=".DynEnt/TEAM">
+				<Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+					<Record><PropertyValue Property="CollectionPath" String="DynEntSet"/><PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="TEAM"/><PropertyValue Property="ValueListProperty" String="TEAM"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="self"
+				href="https://webidecp-p1942791514trial.dispatcher.hanatrial.ondemand.com/destinations/DEF/sap/opu/odata/sap/ZDPMT_GW_PMT_PROC_SRV/$metadata"/><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="latest-version"
+				href="https://webidecp-p1942791514trial.dispatcher.hanatrial.ondemand.com/destinations/DEF/sap/opu/odata/sap/ZDPMT_GW_PMT_PROC_SRV/$metadata"/></Schema>
+	</edmx:DataServices>
+</edmx:Edmx>

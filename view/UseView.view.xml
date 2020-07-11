@@ -1,0 +1,61 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="fi.pms.solution.ZFI_PMS_SOL.controller.UseView"
+	xmlns:html="http://www.w3.org/1999/xhtml" xmlns:smartForm="sap.ui.comp.smartform" xmlns:smartTable="sap.ui.comp.smarttable"
+	xmlns:smartField="sap.ui.comp.smartfield">
+	<App>
+		<pages>
+			<Page >
+				<Toolbar>
+					<Button icon="sap-icon://nav-back" type="Transparent" tooltip="Nav Back" press="onBack"/>
+				</Toolbar>
+				<Panel expandable="true" expanded="true" headerText="Select Process"
+					class="sapUiSizeCompact sapUiNoContentPadding sapUiNoMarginTop sapUiNoMarginEnd sapUiNoMarginBottom sapUiNoMarginBegin">
+					<content>
+						<FlexBox id="idflex" height="10px" alignItems="Center" justifyContent="Center" class="sapUiSmallMargin">
+							<items>
+								<Label text="Project" required="true"/>
+								<ToolbarSpacer width="5px"/>
+								<Select items="{viewData>/Projects}" change="onChange">
+									<core:Item text="{viewData>Description}" key="{viewData>Project}"/>
+								</Select>
+								<ToolbarSpacer width="20px"/>
+								<Label text="Process" visible="true"/>
+								<ToolbarSpacer width="5px"/>
+								<Select id="idSelectProcess" items="{viewData>/Pocesses}" enabled="true">
+									<core:Item text="{viewData>ProcessDesc}" key="{viewData>ProcessDesc}"/>
+								</Select>
+								<ToolbarSpacer width="5px"/>
+								<Button text="Go" type="Emphasized" press="onContinue"/>
+							</items>
+						</FlexBox>
+					</content>
+				</Panel>
+				<Panel expandable="true" expanded="true" headerText="Process"
+					class="sapUiSizeCompact sapUiNoContentPadding sapUiNoMarginTop sapUiNoMarginEnd sapUiNoMarginBottom sapUiNoMarginBegin">
+					<VBox fitContainer="true">
+						<smartForm:SmartForm id="smartFormColumn">
+							<smartForm:Group label="Customer">
+								<smartForm:GroupElement label="Client">
+									<smartField:SmartField value="{Mandt}"/>
+								</smartForm:GroupElement>
+								<smartForm:GroupElement label="Customer no">
+									<smartField:SmartField value="{Kunnr}"/>
+								</smartForm:GroupElement>
+								<smartForm:GroupElement label="company code">
+									<smartField:SmartField value="{Bukrs}"/>
+								</smartForm:GroupElement>
+							</smartForm:Group>
+						</smartForm:SmartForm>
+						<smartTable:SmartTable id="LineItemsSmartTable" entitySet="AnnotSet" smartFilterId="smartFilterBar" tableType="Table"
+							useExportToExcel="true" beforeExport="onBeforeExport" useVariantManagement="true" useTablePersonalisation="true" header="Line Items"
+							showRowCount="true" persistencyKey="SmartTableAnalytical_Explored" enableAutoBinding="true" class="sapUiResponsiveContentPadding"
+							requestAtLeastFields="Name,RollNo,Zdate,Amt,Waers" initiallyVisibleFields="Name,RollNo,Zdate,Amt,Waers">
+							<smartTable:layoutData>
+								<FlexItemData growFactor="1" baseSize="0%"/>
+							</smartTable:layoutData>
+						</smartTable:SmartTable>
+					</VBox>
+				</Panel>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

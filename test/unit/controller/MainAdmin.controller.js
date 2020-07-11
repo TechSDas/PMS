@@ -1,0 +1,1 @@
+sap.ui.define(["fi/pms/solution/ZFI_PMS_SOL/controller/MainAdmin.controller"],function(n){"use strict";QUnit.module("MainAdmin Controller");QUnit.test("I should test the MainAdmin controller",function(t){var i=new n;i.onInit();t.ok(i)})});

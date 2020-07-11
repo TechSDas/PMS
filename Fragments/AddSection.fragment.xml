@@ -1,0 +1,72 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc" xmlns:smartForm="sap.ui.comp.smartform" xmlns:smartTable="sap.ui.comp.smarttable"
+	xmlns:smartField="sap.ui.comp.smartfield" displayBlock="true"
+	class="sapUiSizeCompact sapUiNoContentPadding sapUiNoMarginTop sapUiNoMarginEnd sapUiNoMarginBottom sapUiNoMarginBegin">
+	<!--<ResponsivePopover title="Add New Section" class="sapUiPopupWithPadding" placement="Bottom" afterClose="handleClosePress">-->
+	<Dialog title="Add New Section" class="sapUiPopupWithPadding" draggable="true">
+		<beginButton>
+			<Button text="Save" type="Accept" press="handleSaveSection"/>
+		</beginButton>
+		<endButton>
+			<Button text="Cancel" type="Emphasized" press="handleCloseSection"/>
+		</endButton>
+		<content>
+			<VBox class="sapUiSmallMargin">
+				<f:Form editable="true">
+					<f:layout>
+						<f:ResponsiveGridLayout labelSpanXL="3" labelSpanL="3" labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4"
+							emptySpanM="4" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="false"/>
+					</f:layout>
+					<f:formContainers>
+						<f:FormContainer>
+							<f:formElements>
+								<!--<f:FormElement id="idSectionID">
+									<Label labelFor="idSectionID" text="Section ID" class="wordMand2"/>
+									<f:fields>
+										<Input value="" class="errorBorder" id="idSectionIDVal"/>
+									</f:fields>
+								</f:FormElement>-->
+								<f:FormElement id="idSectionName">
+									<Label labelFor="idSectionName" text="Section Name" class="wordMand2"/>
+									<f:fields>
+										<Input value="" class="errorBorder" id="idSectionNameVal" width="100px" change="onSectionNameChange" showSuggestion="true"
+											suggest="handleSNameSuggest" suggestionItems="{path:'viewData>/PocessesTable/NavHeadToSection/results' , templateShareable:false}">
+											<suggestionItems>
+												<core:Item text="{viewData>SectionName}"/>
+											</suggestionItems>
+										</Input>
+									</f:fields>
+								</f:FormElement>
+								<f:FormElement id="idSectionType">
+									<Label labelFor="idSectionType" text="Section Type / Sequence No" class="wordMand2"/>
+									<f:fields>
+										<FlexBox>
+											<Select selectedKey="{viewData>FieldType}" enabled="{viewData>Editable}" id="idSectionTypeVal">
+												<core:Item key="0001" text="Form"/>
+												<core:Item key="0002" text="Table"/>
+											</Select>
+											<ToolbarSpacer width="50px"/>
+											<Input value="" class="errorBorder" enabled="false" id="idSequencenoVal" width="50px"/>
+										</FlexBox>
+									</f:fields>
+								</f:FormElement>
+								<!--<f:FormElement id="idSequence">-->
+								<!--	<Label labelFor="idSequence" text="Selection Sequence" class="wordMand2"/>-->
+								<!--	<f:fields>-->
+								<!--		<Input value="" class="errorBorder" id="idSequenceVal"/>-->
+								<!--	</f:fields>-->
+								<!--</f:FormElement>-->
+								<!--<f:FormElement id="idSequenceno">-->
+								<!--	<Label labelFor="idSequenceno" text="Sequence No" class="wordMand2"/>-->
+								<!--	<f:fields>-->
+								<!--		<Input value="" class="errorBorder" id="idSequencenoVal"/>-->
+								<!--	</f:fields>-->
+								<!--</f:FormElement>-->
+							</f:formElements>
+						</f:FormContainer>
+					</f:formContainers>
+				</f:Form>
+			</VBox>
+		</content>
+	</Dialog>
+</core:FragmentDefinition>

@@ -1,0 +1,54 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:dnd="sap.ui.core.dnd">
+	<Dialog id="idTaskId" class="sapUiPopupWithPadding">
+		<beginButton>
+			<Button text="Ok" press="onConfirmSectionSetting" type="Accept"/>
+		</beginButton>
+		<endButton>
+			<Button text="Close" press="onCloseSectionSetting" type="Emphasized"/>
+		</endButton>
+		<Table id="table" mode="SingleSelectMaster" beforeOpenContextMenu="onBeforeOpenContextMenu"
+			items="{path:'viewData1>/PocessesTable/NavHeadToSection/results',sorter: {path: 'SectionSeqNum', descending: false}}">
+			<contextMenu>
+				<Menu>
+					<MenuItem text="Move up" press="moveUp"/>
+					<MenuItem text="Move down" press="moveDown"/>
+				</Menu>
+			</contextMenu>
+			<headerToolbar>
+				<OverflowToolbar>
+					<Title text="Sections"/>
+					<ToolbarSpacer/>
+					<Button icon="sap-icon://navigation-up-arrow" tooltip="Move up" press="moveUp"/>
+					<Button icon="sap-icon://navigation-down-arrow" tooltip="Move down" press="moveDown"/>
+				</OverflowToolbar>
+			</headerToolbar>
+			<columns>
+				<Column>
+					<Text text="Setion Sequence No"/>
+				</Column>
+				<Column>
+					<Text text="Section Title"/>
+				</Column>
+				<Column hAlign="End">
+					<Text text="Section Id"/>
+				</Column>
+				<Column hAlign="Right" width="3rem" demandPopin="true"></Column>
+			</columns>
+			<dragDropConfig>
+				<dnd:DragInfo groupName="selected2available" sourceAggregation="items"/>
+				<dnd:DropInfo groupName="available2selected" targetAggregation="items" dropPosition="Between" drop="onDropSelectedProductsTable"/>
+				<dnd:DragDropInfo sourceAggregation="items" targetAggregation="items" dropPosition="Between" drop="onDropSelectedProductsTable"/>
+			</dragDropConfig>
+			<items>
+				<ColumnListItem>
+					<cells>
+						<Text class="sapUiTinyMarginTop" text="{viewData1>SectionSeqNum}"/>
+						<Input value="{viewData1>SectionName}"/>
+						<Text class="sapUiTinyMarginTop" text="{viewData1>SectionId}" wrapping="false"/>
+						<!--<Button icon="sap-icon://delete" type="Reject" press="onDeleteRow"/>-->
+					</cells>
+				</ColumnListItem>
+			</items>
+		</Table>
+	</Dialog>
+</core:FragmentDefinition>

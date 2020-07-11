@@ -1,0 +1,107 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc" xmlns:smartForm="sap.ui.comp.smartform" xmlns:smartTable="sap.ui.comp.smarttable"
+	xmlns:smartField="sap.ui.comp.smartfield" displayBlock="true"
+	class="sapUiSizeCompact sapUiNoContentPadding sapUiNoMarginTop sapUiNoMarginEnd sapUiNoMarginBottom sapUiNoMarginBegin">
+	<!--<ResponsivePopover title="Assign Domain" class="sapUiPopupWithPadding" placement="Bottom" contentHeight="40%" contentWidth="40%">-->
+	<Dialog title="Assign Domain" class="sapUiPopupWithPadding" draggable="true">
+		<beginButton>
+			<Button text="Save" type="Accept" press="onSaveDomain"/>
+		</beginButton>
+		<endButton>
+			<Button text="Cancel" type="Emphasized" press="handleClose"/>
+		</endButton>
+		<content>
+			<VBox class="sapUiSmallMargin">
+				<f:Form editable="true">
+					<f:layout>
+						<f:ResponsiveGridLayout labelSpanXL="3" labelSpanL="3" labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4"
+							emptySpanM="4" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="false"/>
+					</f:layout>
+					<f:formContainers>
+						<f:FormContainer>
+							<f:formElements>
+								<!--<f:FormElement id="idSectionID">
+									<Label labelFor="idSectionID" text="Section ID" class="wordMand2"/>
+									<f:fields>
+										<Input value="" class="errorBorder" id="idSectionIDVal"/>
+									</f:fields>
+								</f:FormElement>-->
+								<f:FormElement id="idFieldName">
+									<Label labelFor="idFieldName" text="Field Name" class="wordMand2"/>
+									<f:fields>
+										<Select items="{viewData>/FieldNames}" id="idFieldNameVal" width="auto" forceSelection="false" change="onFNameChange">
+											<core:Item text="{viewData>FieldName}" key="{viewData>FieldName}"/>
+										</Select>
+										<!--<Input id="idFieldNameVal" width="auto" value="{viewData>/domainData/Fieldname}"/>-->
+										<!--<ComboBox items="{path:'/CountriesCollection'}" id="idFieldNameVal" width="100px"/>-->
+									</f:fields>
+								</f:FormElement>
+								<f:FormElement id="idCheckTable">
+									<!--<Label labelFor="idCheckTable" text="Check Table" class="wordMand2"/> commented : Subhajit-->
+									<RadioButton id="rdBtnIndValues" enabled="true" groupName="GroupA" text="CheckTable" class="wordMand2" selected="true"
+										select="onRadioButtonSelect"/>
+									<!--<Label text="CheckTable" class="wordMand2"/>-->
+									<f:fields>
+										<Input class="errorBorder" id="idCheckTbl" value="{viewData>/domainData/Checktable}"
+											enabled="{= ${viewData>/domainEditFlag} === true ? true : false}" width="50%"/>
+										<!--<Input class="errorBorder" id="idCheckTbl" value="{viewData>/domainData/Checktable}" enabled="true" width="50%"/>-->
+									</f:fields>
+								</f:FormElement>
+								<f:FormElement id="idTable">
+									<RadioButton id="rdBtnIndDomValues" groupName="GroupB" text="Input Domain Values" class="wordMand2" select="onRadioButtonSelect"/>
+									<!--<Label text="Domain" class="wordMand2"/>-->
+									<!--<f:fields>-->
+									<!--	<Input class="errorBorder" id="idDomain" value="{viewData>/domainData/Domainname}"-->
+									<!--		enabled="{= ${viewData>/domainEditFlag} === true ? false : true}" width="40%"/>-->
+									<!--</f:fields>-->
+									<Label text="DataType / Length" class="wordMand2"/>
+									<f:fields>
+										<FlexBox>
+											<Select width="10rem" selectedKey="{viewData>/domainData/Datatype}" id="idDataType" forceSelection="false" enabled="false"
+												items="{path:'viewData>/PocessesTable/NavF4SearchhelpSet/results', filters: [{path: 'FieldName', operator:'EQ', value1: 'Datatype'}]}">
+												<core:Item text="{viewData>DdText}" key="{viewData>DomvalueL}"/>
+											</Select>
+											<!--<Input class="errorBorder" id="idDataType" value="{viewData>/domainData/Datatype}"-->
+											<!--	enabled="{= ${viewData>/domainEditFlag} === true ? false : true}"/>-->
+											<!--</f:fields>-->
+											<!--<Label text="Length" class="wordMand2"/>-->
+											<!--<f:fields>-->
+											<ToolbarSpacer width="40px"/>
+											<Input class="errorBorder" type="Number" id="idLength" value="{viewData>/domainData/Length}" enabled="false" width="30%"/>
+										</FlexBox>
+									</f:fields>
+									<Table id="idDomainTable" items="{viewData>/domainData/domainVlaues}" visible="{= ${viewData>/domainEditFlag} === true ? false : true}"
+										class="sapUiSizeCompact sapUiNoContentPadding sapUiNoMarginTop sapUiNoMarginEnd sapUiNoMarginBottom sapUiNoMarginBegin">
+										<headerToolbar>
+											<Toolbar>
+												<ToolbarSpacer/>
+												<Button id="addRow" press="onAddPress" icon="sap-icon://add" tooltip="Add New Entry" visible="true"/>
+											</Toolbar>
+										</headerToolbar>
+										<columns>
+											<Column>
+												<Text text="Domain Values" wrapping="true"/>
+											</Column>
+											<Column>
+												<Text text="Domain Text" wrapping="true"/>
+											</Column>
+											<Column hAlign="Right" width="2rem" demandPopin="true"></Column>
+										</columns>
+										<items>
+											<ColumnListItem>
+												<Input value="{viewData>Domainvalue}" visible="{= ${viewData>/domainEditFlag} === true ? false : true}" liveChange="domainLiveChange"/>
+												<Input value="{viewData>Domaintext}" visible="{= ${viewData>/domainEditFlag} === true ? false : true}"/>
+												<Button icon="sap-icon://delete" type="Reject" press="onDeleteDomainRow" visible="true"/>
+											</ColumnListItem>
+										</items>
+									</Table>
+								</f:FormElement>
+							</f:formElements>
+						</f:FormContainer>
+					</f:formContainers>
+				</f:Form>
+			</VBox>
+		</content>
+		<!--</ResponsivePopover>-->
+	</Dialog>
+</core:FragmentDefinition>

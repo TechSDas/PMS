@@ -1,0 +1,42 @@
+<core:FragmentDefinition xmlns:custom="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" xmlns:core="sap.ui.core"
+	xmlns:u="sap.ui.unified" xmlns:mvc="sap.ui.core.mvc" xmlns:fb="sap.ui.comp.filterbar" displayBlock="true" xmlns="sap.m" height="100%"
+	xmlns:smartForm="sap.ui.comp.smartform" xmlns:smartTable="sap.ui.comp.smarttable" xmlns:smartField="sap.ui.comp.smartfield"
+	class="sapUiSizeCompact sapUiNoContentPadding sapUiNoMarginTop sapUiNoMarginEnd sapUiNoMarginBottom sapUiNoMarginBegin">
+	<u:Menu id="idMenu">
+		<u:MenuItem text="Section">
+			<u:Menu>
+				<u:MenuItem text="Create" select="onAddSection" icon="sap-icon://create"/>
+				<u:MenuItem text="Reallign / Title" select="onEditSectionSetting" icon="sap-icon://action-settings"/>
+				<u:MenuItem text="Delete" select="onOpenDelete" icon="sap-icon://delete">
+					<!--<u:MenuItem text="Title" select="onEditSectionSetting" icon="sap-icon://heading1"/>-->
+					<u:Menu>
+						<u:MenuItem text="Re-Allign and Delete" select="onReDelete" icon="sap-icon://cancel-maintenance"/>
+						<u:MenuItem text="Delete without re-allignig" select="onDeleteSection" icon="sap-icon://cancel"/>
+					</u:Menu>
+				</u:MenuItem>
+			</u:Menu>
+		</u:MenuItem>
+		<u:MenuItem text="Data">
+			<u:Menu>
+				<u:MenuItem text="Download Template" select="onTemplateExport" icon="sap-icon://download"/>
+				<u:MenuItem text="Download Data" select="onDataExport" icon="sap-icon://download-from-cloud"/>
+				<!--<u:MenuItem text="Upload Data" select="handleMenuItemPress" icon="sap-icon://upload-to-cloud"/>-->
+			</u:Menu>
+		</u:MenuItem>
+		<u:MenuItem text="Domain">
+			<u:Menu>
+				<u:MenuItem text="Assign Values" select="onAssignDom" icon="sap-icon://activity-assigned-to-goal"/>
+				<!--<u:MenuItem text="Delete" select="handleMenuItemPress" icon="sap-icon://delete"/>-->
+				<!--<u:MenuItem text="Edit" select="handleMenuItemPress" icon="sap-icon://edit"/>-->
+			</u:Menu>
+		</u:MenuItem>
+		<u:MenuItem text="Fields">
+			<u:Menu>
+				<u:MenuItem text="Realign / Resequence" select="onEditFieldsSetting" icon="sap-icon://expand-group"/>
+				<!--<u:MenuItem text="Resequence" select="onEditFieldsSetting" icon="sap-icon://group-2"/>-->
+			</u:Menu>
+		</u:MenuItem>
+		<u:MenuItem text="Reset All" select="onReset"></u:MenuItem>
+		<!--<u:MenuItem text="Delete Alternative" select="onDeleteSection"></u:MenuItem>-->
+	</u:Menu>
+</core:FragmentDefinition>

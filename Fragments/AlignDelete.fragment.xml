@@ -1,0 +1,70 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:dnd="sap.ui.core.dnd" xmlns:f="sap.f" xmlns:fb="sap.ui.comp.filterbar">
+	<Dialog class="sapUiPopupWithPadding" stretch="true" title="Realign and Delete Section">
+		<beginButton>
+			<Button text="Save and Delete Source" press="onConfirmAlignD" type="Reject"/>
+		</beginButton>
+		<endButton>
+			<Button text="Cancel" press="onCloseAlignD" type="Emphasized"/>
+		</endButton>
+		<HBox renderType="Bare">
+			<Table id="tableS" selectionChange="onChangeGetRowIndices2" mode="MultiSelect" beforeOpenContextMenu="onBeforeOpenContextMenu"
+				items="{path:'viewData>/processTableData',sorter: {path: 'Sequence', descending: false}}">
+				<headerToolbar>
+					<OverflowToolbar class="toolbarHeight">
+						<VBox>
+							<Title text="Select Source Section"/>
+							<ComboBox id="cbs1" selectionChange="onSChange" items="{viewData>/PocessesTable/NavHeadToSection/results}">
+								<core:Item key="{viewData>SectionId}" text="{viewData>SectionName}"/>
+							</ComboBox>
+						</VBox>
+					</OverflowToolbar>
+				</headerToolbar>
+				<columns>
+					<Column>
+						<Text text="Field Name"/>
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem>
+						<cells>
+							<Text text="{viewData>Fieldname}"/>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+			<!--<VBox justifyContent="Center" class="sapUiTinyMarginBeginEnd">-->
+			<Button class="sapUiTinyMarginBottom" icon="sap-icon://navigation-right-arrow" tooltip="Move to selected" press="moveToTargetSection"/>
+			<!--<Button icon="sap-icon://navigation-left-arrow" tooltip="Move to available" press="moveToAvailableProductsTable"/>-->
+			<!--</VBox>-->
+			<Table id="tableT" mode="SingleSelectMaster" beforeOpenContextMenu="onBeforeOpenContextMenu"
+				items="{path:'viewData>/processTableData',sorter: {path: 'Sequence', descending: false}}">
+				<headerToolbar>
+					<OverflowToolbar class="toolbarHeight">
+						<VBox>
+							<Title text="Select Target Section"/>
+							<ComboBox id="cbs2" selectionChange="onTChange" items="{viewData>/PocessesTable/NavHeadToSection/results}">
+								<core:Item key="{viewData>SectionId}" text="{viewData>SectionName}"/>
+							</ComboBox>
+						</VBox>
+					</OverflowToolbar>
+				</headerToolbar>
+				<columns>
+					<Column>
+						<Text text="Field Sequence No"/>
+					</Column>
+					<Column>
+						<Text text="Field Name"/>
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem>
+						<cells>
+							<Text text="{viewData>Sequence}"/>
+							<Text text="{viewData>Fieldname}"/>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</HBox>
+	</Dialog>
+</core:FragmentDefinition>

@@ -1,0 +1,44 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc" xmlns:smartForm="sap.ui.comp.smartform" xmlns:smartTable="sap.ui.comp.smarttable"
+	xmlns:smartField="sap.ui.comp.smartfield" displayBlock="true"
+	class="sapUiSizeCompact sapUiNoContentPadding sapUiNoMarginTop sapUiNoMarginEnd sapUiNoMarginBottom sapUiNoMarginBegin">
+	<ResponsivePopover title="Add New Project" class="sapUiPopupWithPadding" placement="Bottom" afterClose="handleCloseButton">
+		<beginButton>
+			<Button text="Cancel" type="Transparent" press="handleCloseButton"/>
+		</beginButton>
+		<endButton>
+			<Button text="Save" type="Transparent" press="handleSaveButton"/>
+		</endButton>
+		<content>
+			<VBox class="sapUiSmallMargin">
+				<f:Form editable="true">
+					<f:layout>
+						<f:ResponsiveGridLayout labelSpanXL="3" labelSpanL="3" labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4"
+							emptySpanM="4" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="false"/>
+					</f:layout>
+					<f:formContainers>
+						<f:FormContainer>
+							<f:formElements>
+								<f:FormElement id="idProcessName">
+									<Label labelFor="idProcessName" text="Project Name" required="true" class="wordMand2"></Label>
+									<f:fields>
+										<!--		Rachana Start of Changes-->
+										<Input value="" class="errorBorder" id="idProcessNameVal" liveChange="handleUserInput"/>
+										<!--		Rachana end of Changes-->
+									</f:fields>
+								</f:FormElement>
+								<!--Changes done by Amol Vaity, as no need to pass project id from UI.-->
+								<!--backend will handle project id creation part-->
+								<!--<f:FormElement label="Project id">-->
+								<!--	<f:fields>-->
+								<!--		<Input value="{viewData>/Projid}" id="idProcessIdVal" editable="false"/>-->
+								<!--	</f:fields>-->
+								<!--</f:FormElement>-->
+							</f:formElements>
+						</f:FormContainer>
+					</f:formContainers>
+				</f:Form>
+			</VBox>
+		</content>
+	</ResponsivePopover>
+</core:FragmentDefinition>

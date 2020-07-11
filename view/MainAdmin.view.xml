@@ -1,0 +1,87 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:f="sap.f" xmlns:html="http://www.w3.org/1999/xhtml"
+	displayBlock="true" controllerName="fi.pms.solution.ZFI_PMS_SOL.controller.MainAdmin" class="mo2HeaderView"
+	xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" xmlns:uxap="sap.uxap">
+	<App id="app">
+		<pages>
+			<Page showHeader="false" class="sapUiSizeCompact">
+				<Toolbar>
+					<f:Avatar initials="" displaySize="XS" src="sap-icon://customer"/>
+					<!--<ToolbarSpacer width="10px"/>-->
+					<Title text="{viewData>/userName}"/>
+					<ToolbarSpacer/>
+					<!--Happy-->
+					<Title id="idAdminPageProjectTitle" text=" Project : {viewData>/ProjTitle}"/>
+					<ToolbarSpacer width="20px"/>
+					<Title text=" Role: {visibilityModel>/userRole}"/>
+				</Toolbar>
+				<Toolbar width="100%" height="20px" style="Clear"/>
+				<FlexBox id="idflex" height="50px" alignItems="Center" justifyContent="Center" class="sapUiSmallMargin">
+					<items>
+						<Label text="{i18n>project}" required="true" visible="{visibilityModel>/visible}"/>
+						<ToolbarSpacer width="5px" visible="cc}"/>
+						<Select items="{viewData>/Projects}" change="onChange" id="idSelectProject" visible="{visibilityModel>/visible}">
+							<core:Item text="{viewData>ProjectDesc}" key="{viewData>ProjectId}"/>
+						</Select>
+						<ToolbarSpacer width="20px" visible="{=${visibilityModel>/userRole} ==='USER' ? true: false}"/>
+						<Label text="{i18n>process}" visible="{=${visibilityModel>/userRole} ==='USER' ? true: false}"/>
+						<ToolbarSpacer width="5px"/>
+						<Select items="{viewData>/Pocesses}" id="idSelectProcess" change="onChangeProcess" forceSelection="false"
+							visible="{=${visibilityModel>/userRole} ==='USER' ? true: false}">
+							<core:Item text="{viewData>ProcessDesc}" key="{viewData>Process}"/>
+						</Select>
+						<ToolbarSpacer width="20px"/>
+						<Button icon="sap-icon://add" text="{i18n>addProject}" press="onAddProcess"
+							visible="{=${visibilityModel>/userRole} ==='ADMIN' ? true : false}"/>
+						<!--<ToolbarSpacer width="28px"/>-->
+						<!--<Button text="Go" type="Emphasized" press="onContinue"/>-->
+					</items>
+				</FlexBox>
+				<Toolbar width="100%" height="20px" style="Clear"/>
+				<FlexBox alignItems="Start" justifyContent="Center">
+					<items>
+						<GenericTile visible="{=${visibilityModel>/userRole} ==='ADMIN' ? true : false}" id="idUserTile"
+							class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="{i18n>USER}" subheader="{i18n>userSetting}" press="navToUser">
+							<TileContent unit="Users">
+								<NumericContent value="{viewData>/UserCount}" icon="sap-icon://activity-individual" withMargin="false"/>
+							</TileContent>
+						</GenericTile>
+						<GenericTile id="idProcessTile" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="{i18n>PROCESS}"
+							subheader="{i18n>processSetting}" press="navToProcess" visible="{=${visibilityModel>/userRole} ==='ADMIN' ? true : false}">
+							<TileContent unit="Processes">
+								<NumericContent value="{viewData>/ProcessCount}" icon="sap-icon://add-activity" withMargin="false"/>
+							</TileContent>
+						</GenericTile>
+						<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="My Timesheet" press="onMyTimesheetClick"
+							visible="{visibilityModel>/UserTilesVisible}">
+							<TileContent>
+								<Text text="Navigate to My Timesheet App"/>
+							</TileContent>
+						</GenericTile>
+						<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" visible="{visibilityModel>/UserTilesVisible}"
+							header="Resource Availability" press="onResAvailabilityClick">
+							<TileContent>
+								<Text text="Navigate to Resource Avilability App"/>
+							</TileContent>
+						</GenericTile>
+						<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" visible="{visibilityModel>/UserTilesVisible}"
+							header="New Task Allocation" press="onNewTaskAllocClick">
+							<TileContent>
+								<Text text="Navigate to New Task Allocation App"/>
+							</TileContent>
+						</GenericTile>
+						<uxap:ObjectPageLayout height="400px" id="userSmartFormContainer" visible="{visibilityModel>/UserPreviewFormVisible}">
+							<uxap:headerTitle>
+								<uxap:ObjectPageHeader>
+									<uxap:actions>
+										<Button text="Save" icon="sap-icon://save" type="Emphasized" press="onUserFormSave"/>
+									</uxap:actions>
+								</uxap:ObjectPageHeader>
+							</uxap:headerTitle>
+							<uxap:sections></uxap:sections>
+						</uxap:ObjectPageLayout>
+					</items>
+				</FlexBox>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

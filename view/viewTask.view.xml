@@ -1,0 +1,50 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	xmlns:u="sap.ui.unified" xmlns:fb="sap.ui.layout.form" controllerName="fi.pms.solution.ZFI_PMS_SOL.controller.viewTask"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page title="Task View" class="sapUiSizeCompact">
+		<!--<Toolbar>
+			<Button icon="sap-icon://nav-back" tooltip="Nav Back" press="onBack"/>
+		</Toolbar>-->
+		<l:VerticalLayout>
+				<HBox class="sapUiLargeMarginBegin">
+				<Label text="{i18n>UserId}" id="txt11" design="Bold" class="sapUiSmallMarginEnd userIdInput" textAlign="Center"/>
+				<Input value="{viewData1>/UserScreen2/Taskid}" valueHelpOnly="true" width="80%" showValueHelp="true" valueHelpRequest="onValueHelpRequestUserID" id="costCenterId"></Input>
+			</HBox>
+		<!--	<HBox class="sapUiLargeMarginBegin">
+				<Label text="{i18n>UserId}" id="txt11" design="Bold" class="sapUiSmallMarginEnd userIdInput" textAlign="Center"/>
+				<Input value="{viewData1>/UserScreen2/Taskid}" width="80%" showValueHelp="true" valueHelpRequest="onValueHelpRequestUserID" id="costCenterId"></Input>
+			</HBox>-->
+			<Toolbar>
+					<ToolbarSpacer/>
+					<Button tooltip="{i18>addSection}" icon="sap-icon://add" class="sapUiSmallMarginEnd" press="onAddRow"/>
+				</Toolbar>
+			<l:HorizontalLayout>
+				<!--<l:content>-->
+				
+				<u:Calendar id="calendar" select="handleCalendarSelect" width="40%"/>
+				<Table id="RICEFtable" items="{viewData>/UserScreen}" width="79%">
+						<columns>
+							<Column hAlign="Left" width="8%">
+								<Text text="{i18n>RicefId}"/>
+							</Column>
+							<Column hAlign="Left" width="8%">
+								<Text text="{i18n>TaskId}"/>
+							</Column>
+							<Column hAlign="Left" width="10%">
+								<Text text="{i18n>TaskDesc}"/>
+							</Column>
+						</columns>
+						<items>
+							<ColumnListItem >
+								<Input value="{viewData>Ricefid}" editable="false" width="50%"></Input>
+								<Input value="{viewData>Taskid}" editable="false" width="50%"></Input>
+								<Input value="{viewData>RICEFIdDesc}" editable="false" width="70%"></Input>
+							</ColumnListItem>
+						</items>
+					</Table>
+			
+			</l:HorizontalLayout>
+			<u:CalendarLegend id="legend1"/>
+		</l:VerticalLayout>
+	</Page>
+</mvc:View>

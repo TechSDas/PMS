@@ -1,0 +1,7 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<SelectDialog id="idTaskId" title="{i18n>SelectTask}" class="sapUiPopupWithPadding" items="{taskIdModel>/results}"
+		liveChange="_handleValueTaskSearch" confirm="_handleValueTaskConfirm" cancel="_handleValueMaterialCancel" growing="true" search="_handleValueTaskSearch"
+		growingThreshold="6">
+		<StandardListItem title="{taskIdModel>Taskid}" info="{taskIdModel>Taskid}" description="{taskIdModel>TaskDescription}"/>
+	</SelectDialog>
+</core:FragmentDefinition>

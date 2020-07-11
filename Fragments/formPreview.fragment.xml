@@ -1,0 +1,30 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:smartForm="sap.ui.comp.smartform"
+	xmlns:smartTable="sap.ui.comp.smarttable" xmlns:smartField="sap.ui.comp.smartfield"
+	xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+	<Dialog title="test" contentWidth="100%" resizable="true" stretch="true " contentHeight="100%">
+		<smartForm:SmartForm id="smartFormColumn" class="pointerClass" visible="{=${viewModel>/visiblePage} ==='trendOverviewPage' }"
+			app:defaultCheckBoxDisplayBehaviour="OnOff" app:defaultDropDownDisplayBehaviour="idAndDescription" editTogglable="false"
+			entityType="DynEntItem" editable="true">
+			<smartForm:layout>
+				<smartForm:ColumnLayout columnsM="2" columnsL="2" columnsXL="4"/>
+			</smartForm:layout>
+			<!--<smartForm:Group label="Test">-->
+			<!--	<smartForm:GroupElement>-->
+			<!--		<smartField:SmartField value="{PROCESS_ID}"/>-->
+			<!--	</smartForm:GroupElement>-->
+			<!--	<smartForm:GroupElement>-->
+			<!--		<smartField:SmartField value="{PROJECT_ID}"/>-->
+			<!--	</smartForm:GroupElement>-->
+			<!--	<smartForm:GroupElement>-->
+			<!--		<smartField:SmartField value="{TEAM}"/>-->
+			<!--	</smartForm:GroupElement>-->
+			<!--	<smartForm:GroupElement>-->
+			<!--		<smartField:SmartField value="{PLN_FS_SUB_DT}"/>-->
+			<!--	</smartForm:GroupElement>-->
+			<!--	<smartForm:GroupElement>-->
+			<!--		<smartField:SmartField value="{TEST_CB}"/>-->
+			<!--	</smartForm:GroupElement>-->
+			<!--</smartForm:Group>-->
+		</smartForm:SmartForm>
+	</Dialog>
+</core:FragmentDefinition>

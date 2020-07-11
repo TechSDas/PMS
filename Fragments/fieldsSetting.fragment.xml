@@ -1,0 +1,109 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:dnd="sap.ui.core.dnd" xmlns:f="sap.f" xmlns:fb="sap.ui.comp.filterbar">
+	<Dialog class="sapUiPopupWithPadding" stretch="true">
+		<beginButton>
+			<Button text="Ok" press="onConfirmFieldsSetting" type="Accept"/>
+		</beginButton>
+		<endButton>
+			<Button text="Close" press="onCloseFieldsSetting" type="Emphasized"/>
+		</endButton>
+		<HBox renderType="Bare">
+			<Table id="table0" mode="SingleSelectMaster" beforeOpenContextMenu="onBeforeOpenContextMenu"
+				items="{path:'viewData>/processTableData',sorter: {path: 'Sequence', descending: false}}">
+				<contextMenu>
+					<Menu>
+						<!--<MenuItem text="Move up" press="moveUp1"/>-->
+						<!--<MenuItem text="Move down" press="moveDown1"/>-->
+						<MenuItem text="Move to section" press="moveToSelectedTable"/>
+					</Menu>
+				</contextMenu>
+				<headerToolbar>
+					<OverflowToolbar class="toolbarHeight">
+						<VBox>
+							<Title text="Select Source Section"/>
+							<ComboBox id="cb12" selectionChange="onSelectionChange"
+								items="{path:'viewData1>/PocessesTable/NavHeadToSection/results',sorter: {path: 'SectionSeqNum', descending: false}}">
+								<core:Item key="{viewData1>SectionId}" text="{viewData1>SectionName}"/>
+							</ComboBox>
+						</VBox>
+						<ToolbarSpacer/>
+						<Button icon="sap-icon://navigation-up-arrow" tooltip="Move up" press="moveUp1"/>
+						<Button icon="sap-icon://navigation-down-arrow" tooltip="Move down" press="moveDown1"/>
+					</OverflowToolbar>
+				</headerToolbar>
+				<columns>
+					<Column>
+						<Text text="Field Sequence No"/>
+					</Column>
+					<Column>
+						<Text text="Field Name"/>
+					</Column>
+				</columns>
+				<dragDropConfig>
+					<dnd:DragInfo groupName="selected2available" sourceAggregation="items"/>
+					<dnd:DropInfo groupName="available2selected" targetAggregation="items" dropPosition="Between" drop="onDropSelectedProductsTable"/>
+					<dnd:DragDropInfo sourceAggregation="items" targetAggregation="items" dropPosition="Between" drop="onDropSelectedProductsTable"/>
+				</dragDropConfig>
+				<items>
+					<ColumnListItem>
+						<cells>
+							<Text text="{viewData>Sequence}"/>
+							<Text text="{viewData>Fieldname}"/>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+			<ToolbarSpacer/>
+			<!--<VBox justifyContent="Center" class="sapUiTinyMarginBeginEnd">-->
+			<Button class="sapUiTinyMarginBottom" icon="sap-icon://navigation-right-arrow" tooltip="Move to selected" press="moveToSelectedTable"/>
+			<ToolbarSpacer/>
+			<Button icon="sap-icon://navigation-left-arrow" tooltip="Move to available" press="moveToAvailableTable"/>
+			<!--</VBox>-->
+			<ToolbarSpacer/>
+			<Table id="table2" mode="SingleSelectMaster" beforeOpenContextMenu="onBeforeOpenContextMenu"
+				items="{path:'viewData>/processTableData',sorter: {path: 'Sequence', descending: false}}">
+				<contextMenu>
+					<Menu>
+						<!--<MenuItem text="Move up" press="moveUp2"/>-->
+						<!--<MenuItem text="Move down" press="moveDown2"/>-->
+						<MenuItem text="Move to section" press="moveToAvailableTable"/>
+					</Menu>
+				</contextMenu>
+				<headerToolbar>
+					<OverflowToolbar class="toolbarHeight">
+						<VBox>
+							<Title text="Select Target Section"/>
+							<ComboBox id="cb22" selectionChange="onSelectionChange1"
+								items="{path:'viewData1>/PocessesTable/NavHeadToSection/results',sorter: {path: 'SectionSeqNum', descending: false}}">
+								<core:Item key="{viewData1>SectionId}" text="{viewData1>SectionName}"/>
+							</ComboBox>
+						</VBox>
+						<ToolbarSpacer/>
+						<Button icon="sap-icon://navigation-up-arrow" tooltip="Move up" press="moveUp2"/>
+						<Button icon="sap-icon://navigation-down-arrow" tooltip="Move down" press="moveDown2"/>
+					</OverflowToolbar>
+				</headerToolbar>
+				<columns>
+					<Column>
+						<Text text="Field Sequence No"/>
+					</Column>
+					<Column>
+						<Text text="Field Name"/>
+					</Column>
+				</columns>
+				<dragDropConfig>
+					<dnd:DragInfo groupName="selected2available" sourceAggregation="items"/>
+					<dnd:DropInfo groupName="available2selected" targetAggregation="items" dropPosition="Between" drop="onDropSelectedProductsTable"/>
+					<dnd:DragDropInfo sourceAggregation="items" targetAggregation="items" dropPosition="Between" drop="onDropSelectedProductsTable"/>
+				</dragDropConfig>
+				<items>
+					<ColumnListItem>
+						<cells>
+							<Text text="{viewData>Sequence}"/>
+							<Text text="{viewData>Fieldname}"/>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</HBox>
+	</Dialog>
+</core:FragmentDefinition>

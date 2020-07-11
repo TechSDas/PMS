@@ -1,0 +1,39 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc" xmlns:smartForm="sap.ui.comp.smartform" xmlns:smartTable="sap.ui.comp.smarttable"
+	xmlns:smartField="sap.ui.comp.smartfield" displayBlock="true"
+	class="sapUiSizeCompact sapUiNoContentPadding sapUiNoMarginTop sapUiNoMarginEnd sapUiNoMarginBottom sapUiNoMarginBegin">
+	<Dialog title="Delete Section" class="sapUiPopupWithPadding" draggable="true">
+		<beginButton>
+			<Button text="Delete" type="Reject" press="handleDeletePress"/>
+		</beginButton>
+		<endButton>
+			<Button text="Cancel" type="Emphasized" press="handleCancelPress1"/>
+		</endButton>
+		<content>
+			<VBox class="sapUiSmallMargin">
+				<f:Form editable="true">
+					<f:layout>
+						<f:ResponsiveGridLayout labelSpanXL="3" labelSpanL="3" labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4"
+							emptySpanM="4" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="false"/>
+					</f:layout>
+					<f:formContainers>
+						<f:FormContainer>
+							<f:formElements>
+								<f:FormElement id="idSectionType1">
+									<Label labelFor="idSectionType1" text="Section Type" class="wordMand2"/>
+									<f:fields>
+										<FlexBox>
+											<ComboBox id="cb3" items="{viewData1>/PocessesTable/NavHeadToSection/results}">
+												<core:Item key="{viewData1>SectionId}" text="{viewData1>SectionName}"/>
+											</ComboBox>
+										</FlexBox>
+									</f:fields>
+								</f:FormElement>
+							</f:formElements>
+						</f:FormContainer>
+					</f:formContainers>
+				</f:Form>
+			</VBox>
+		</content>
+	</Dialog>
+</core:FragmentDefinition>

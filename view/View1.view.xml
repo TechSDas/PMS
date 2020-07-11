@@ -1,0 +1,146 @@
+<mvc:View controllerName="fi.pms.solution.ZFI_PMS_SOL.controller.View1" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	xmlns:u="sap.ui.unified" xmlns:l="sap.ui.layout" xmlns:html="http://www.w3.org/1999/xhtml">
+	<App>
+		<!-- id="app"-->
+		<Page enableScrolling="true" showNavButton="false" navButtonPress="onNavBack">
+			<!--<ObjectHeader title="ABC"></ObjectHeader>-->
+			<!--<l:VerticalLayout>-->
+			<u:CalendarDateInterval id="calendar" width="100%" days="7" select="handleCalendarSelect" showWeekNumbers="false"/>
+			<!--<l:VerticalLayout>-->
+			<Panel expandable="true" expanded="true" headerText="Select Task" id="idseltask">
+				<Toolbar>
+					<ToolbarSpacer/>
+					<Button tooltip="{i18>addSection}" icon="sap-icon://add" class="sapUiSmallMarginEnd" press="onAddRow"/>
+				</Toolbar>
+				<content>
+					<l:HorizontalLayout>
+						<Table id="RICEFtable" items="{viewData>/UserScreen}">
+							<columns>
+								<Column hAlign="Left" width="15%">
+									<Label text="{i18n>RicefId}" required="true"/>
+								</Column>
+								<Column hAlign="Left" width="15%">
+									<Text text="{i18n>TaskId}"/>
+								</Column>
+								<Column hAlign="Left" width="10%">
+									<Text text="{i18n>Total}"/>
+								</Column>
+								<Column hAlign="Left" width="10%">
+									<Text text="{i18n>Available}"/>
+								</Column>
+								<Column hAlign="Left" width="15%">
+									<Text text="{i18n>Worked}"/>
+								</Column>
+								<Column hAlign="Left" width="40%">
+									<Text text="{i18n>Comment}"/>
+								</Column>
+								<Column hAlign="Left" width="5%">
+									<!--<Text text="Delete"/>-->
+								</Column>
+							</columns>
+							<items>
+								<ColumnListItem vAlign="Top">
+									<!--	<Select width="10rem" items="{viewData>/UserScreen}">
+									<core:Item text="{viewData>RICEF}" key="{viewData>Projid}"/>
+								</Select>
+								<Select width="10rem" items="{viewData>/UserScreen}">
+									<core:Item text="{viewData>Task}" key="{viewData>Username}"/>
+								</Select>
+								<Select width="10rem" items="{viewData>/UserScreen}">
+									<core:Item text="{viewData>}" key="{viewData>Username}"/>
+								</Select>
+								<Select width="10rem" items="{viewData>/UserScreen}">
+									<core:Item text="{viewData>Display}" key="{viewData>Username}"/>
+								</Select>-->
+									<cells>
+										<Select width="10rem" items="{ path: 'TaskRicefModel>/results',templateShareable:false}" change="onChangeRicefId"
+											selectedKey="{viewData>Ricefid}" >
+											<core:Item text="{TaskRicefModel>Ricefid}" key="{TaskRicefModel>Ricefid}"/>
+										</Select>
+										<Select width="10rem" items="{ path: 'TaskRicefModel>/TimesheetTypeP',templateShareable:false}" change="onChangeTask"
+											selectedKey="{viewData>Taskid}" >
+											<core:Item text="{TaskRicefModel>TaskDescription}" key="{TaskRicefModel>Taskid}"/>
+										</Select>
+										<Input value="{viewData>HoursAllocated}" editable="false"></Input>
+										<Input value="{viewData>HoursAvailblty}" editable="true" change="onChangeHours"></Input>
+										<Input value="{viewData>HoursBooked}" enabled="{viewData>Editable}"></Input>
+										<Input value="{viewData>Comments}" enabled="{viewData>Editable}"></Input>
+										<Button tooltip="{i18>addSection}" icon="sap-icon://delete" class="sapUiSmallMarginEnd" press="onDeleteRow"/>
+									</cells>
+								</ColumnListItem>
+							</items>
+						</Table>
+					</l:HorizontalLayout>
+				</content>
+			</Panel>
+		<!--</l:VerticalLayout>-->
+		<Panel expandable="true" expanded="true" headerText="Select Misc" id="idselmisc">
+			<Toolbar>
+				<ToolbarSpacer/>
+				<Button tooltip="{i18>addSection}" icon="sap-icon://add" class="sapUiSmallMarginEnd" press="onAddRowMisc"/>
+			</Toolbar>
+			<l:HorizontalLayout>
+				<Table id="Misctable" items="{viewDataMisc>/UserScreenMisc}">
+					<columns>
+						<Column hAlign="Left" width="20%">
+							<Text text="Task"/>
+						</Column>
+						<Column hAlign="Left" width="20%">
+							<Text text="Hours Booking entry"/>
+						</Column>
+						<Column hAlign="Left" width="40%">
+							<Text text="Comments"/>
+						</Column>
+						<Column hAlign="Left" width="5%">
+							<Text text="Delete"/>
+						</Column>
+					</columns>
+					<items>
+						<ColumnListItem vAlign="Top">
+							<!--	<Select width="10rem" items="{viewData>/UserScreen}">
+									<core:Item text="{viewData>RICEF}" key="{viewData>Projid}"/>
+								</Select>
+								<Select width="10rem" items="{viewData>/UserScreen}">
+									<core:Item text="{viewData>Task}" key="{viewData>Username}"/>
+								</Select>
+								<Select width="10rem" items="{viewData>/UserScreen}">
+									<core:Item text="{viewData>}" key="{viewData>Username}"/>
+								</Select>
+								<Select width="10rem" items="{viewData>/UserScreen}">
+									<core:Item text="{viewData>Display}" key="{viewData>Username}"/>
+								</Select>-->
+							<cells>
+								<Select width="10rem" items="{ path: 'TaskRicefModel>/TimesheetTypeM',templateShareable:false}" change="onChangeTaskMisc"
+									selectedKey="{viewDataMisc>Taskid}">
+									<core:Item text="{TaskRicefModel>TaskDescription}" key="{TaskRicefModel>Taskid}"/>
+								</Select>
+								<Input value="{viewDataMisc>HoursBooked}"></Input>
+								<Input value="{viewDataMisc>Comments}" enabled="{viewDataMisc>Editable}"></Input>
+								<Button tooltip="{i18>addSection}" icon="sap-icon://delete" class="sapUiSmallMarginEnd" press="onDeleteRowMisc"/>
+							</cells>
+						</ColumnListItem>
+					</items>
+				</Table>
+			</l:HorizontalLayout>
+		</Panel>
+		<!--</l:VerticalLayout>-->
+		<!--<FlexBox height="80px" alignItems="End" justifyContent="End">
+				<items>
+					<Button text="AddTask" class="sapUiSmallMarginEnd" press="addTaskClick" visible="false"/>
+					<Button text="ViewTask" class="sapUiSmallMarginEnd" press="onView" visible="false"/>
+					<Button text="Addmisc" class="sapUiSmallMarginEnd" press="addMiscClick" visible="false"/>
+					<Button text="Submit" class="sapUiSmallMarginEnd" press="onSubmit"/>
+				</items>
+			</FlexBox>-->
+		<footer>
+			<Toolbar>
+				<ToolbarSpacer/>
+				<Button text="AddTask" class="sapUiSmallMarginEnd" press="addTaskClick" visible="false"/>
+				<Button text="ViewTask" class="sapUiSmallMarginEnd" press="onView" visible="false"/>
+				<Button text="Addmisc" class="sapUiSmallMarginEnd" press="addMiscClick" visible="false"/>
+				<Button text="Submit" class="sapUiSmallMarginEnd" press="onSubmit"/>
+			</Toolbar>
+		</footer>
+	</Page>
+</App>
+</mvc:View>

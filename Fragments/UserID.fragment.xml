@@ -1,0 +1,7 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<SelectDialog id="idUserId" title="{i18n>SelectUser}" class="sapUiPopupWithPadding" items="{userIdModel>/results}"
+		liveChange="_handleValueUserSearch" confirm="_handleValueUserConfirm" cancel="_handleValueMaterialCancel" growing="true" search="_handleValueUserSearch"
+		growingThreshold="6">
+		<StandardListItem title="{userIdModel>Bname}" info="{userIdModel>McNamefir}" description="{userIdModel>Company}"/>
+	</SelectDialog>
+</core:FragmentDefinition>

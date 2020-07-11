@@ -1,0 +1,247 @@
+{
+	"_version": "1.12.0",
+	"sap.app": {
+		"id": "fi.pms.solution.ZFI_PMS_SOL",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"sourceTemplate": {
+			"id": "servicecatalog.connectivityComponentForManifest",
+			"version": "0.0.0"
+		},
+		"dataSources": {
+			"ZDPMT_GW_INIT_STAT_UI_SRV": {
+				"uri": "/sap/opu/odata/sap/ZDPMT_GW_INIT_STAT_UI_SRV/",
+				"type": "OData",
+				"settings": {
+					"localUri": "localService/ZDPMT_GW_INIT_STAT_UI_SRV/metadata.xml"
+				}
+			},
+			"ZDPMT_GW_PMT_PROC_SRV": {
+				"uri": "/sap/opu/odata/sap/ZDPMT_GW_PMT_PROC_SRV/",
+				"type": "OData",
+				"settings": {
+					"localUri": "localService/ZDPMT_GW_PMT_PROC_SRV/metadata.xml"
+				}
+			}
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		}
+	},
+	"sap.ui5": {
+		"flexEnabled": false,
+		"rootView": {
+			"viewName": "fi.pms.solution.ZFI_PMS_SOL.view.MainAdmin",
+			"type": "XML",
+			"async": true,
+			"id": "Login"
+		},
+		"dependencies": {
+			"minUI5Version": "1.65.6",
+			"libs": {
+				"sap.m": {},
+				"sap.ui.core": {},
+				"sap.ui.layout": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "fi.pms.solution.ZFI_PMS_SOL.i18n.i18n"
+				}
+			},
+			"": {
+				"type": "sap.ui.model.odata.v2.ODataModel",
+				"settings": {
+					"defaultOperationMode": "Server",
+					"defaultBindingMode": "TwoWay",
+					"defaultCountMode": "Request"
+				},
+				"dataSource": "ZDPMT_GW_PMT_PROC_SRV",
+				"preload": true
+			},
+			"INIT": {
+				"type": "sap.ui.model.odata.v2.ODataModel",
+				"settings": {
+					"defaultOperationMode": "Server",
+					"defaultBindingMode": "OneWay",
+					"defaultCountMode": "Request"
+				},
+				"dataSource": "ZDPMT_GW_INIT_STAT_UI_SRV",
+				"preload": true
+			},
+			"visibilityModel": {
+				"type": "sap.ui.model.json.JSONModel",
+				"settings": {},
+				"preload": false
+			},
+			"dynamicFormModel": {
+				"type": "sap.ui.model.json.JSONModel",
+				"settings": {},
+				"preload": false
+			},
+			"viewData": {
+				"type": "sap.ui.model.json.JSONModel",
+				"settings": {},
+				"preload": false
+			},
+			"timeSheet": {
+				"type": "sap.ui.model.odata.v2.ODataModel",
+				"settings": {
+					"defaultOperationMode": "Server",
+					"defaultBindingMode": "OneWay",
+					"defaultCountMode": "Request",
+					"useBatch": true
+				},
+				"dataSource": "ZDPMT_GW_INIT_STAT_UI_SRV",
+				"preload": true
+			}
+		},
+		"resources": {
+			"css": [
+				{
+					"uri": "css/style.css"
+				}
+			]
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"async": true,
+				"viewPath": "fi.pms.solution.ZFI_PMS_SOL.view",
+				"controlAggregation": "pages",
+				"transition": "slide",
+				"controlId": "app",
+				"clearControlAggregation": false
+			},
+			"routes": [
+				{
+					"pattern": "Login",
+					"name": "Login",
+					"target": "Login"
+				},
+				{
+					"name": "TargetMainAdmin",
+					"pattern": "",
+					"target": "TargetMainAdmin"
+				},
+				{
+					"pattern": "User",
+					"name": "User",
+					"target": "User"
+				},
+				{
+					"pattern": "Process/:project:",
+					"name": "Process",
+					"target": "Process"
+				},
+				{
+					"pattern": "smartTable",
+					"name": "smartTable",
+					"target": "smartTable"
+				},
+				{
+					"pattern": "UseView",
+					"name": "UseView",
+					"target": "UseView"
+				},
+				{
+					"name": "View1",
+					"pattern": "View1",
+					"target": [
+						"View1"
+					]
+				},
+				{
+					"name": "viewTask",
+					"pattern": "viewTask",
+					"target": [
+						"viewTask"
+					]
+				},
+				{
+					"name": "viewAdd",
+					"pattern": "viewAdd",
+					"target": [
+						"viewAdd"
+					]
+				}
+			],
+			"targets": {
+				"Login": {
+					"viewType": "XML",
+					"viewName": "Login"
+				},
+				"TargetMainAdmin": {
+					"viewType": "XML",
+					"viewName": "MainAdmin"
+				},
+				"User": {
+					"viewType": "XML",
+					"viewName": "setUpUser"
+				},
+				"Process": {
+					"viewType": "XML",
+					"viewName": "setUpProcess"
+				},
+				"smartTable": {
+					"viewType": "XML",
+					"viewName": "smartTable"
+				},
+				"UseView": {
+					"viewType": "XML",
+					"viewName": "UseView"
+				},
+				"View1": {
+					"viewType": "XML",
+					"viewName": "View1",
+					"viewLevel": 2,
+					"controlAggregation": "pages",
+					"viewId": "View1"
+				},
+				"viewTask": {
+					"viewType": "XML",
+					"viewName": "viewTask",
+					"viewLevel": 2,
+					"controlAggregation": "pages",
+					"viewId": "viewTask"
+				},
+				"viewAdd": {
+					"viewType": "XML",
+					"viewName": "viewAdd",
+					"viewLevel": 2,
+					"controlAggregation": "pages",
+					"viewId": "viewAdd"
+				}
+			}
+		}
+	},
+	"sap.platform.abap": {
+		"uri": "/sap/bc/ui5_ui5/sap/zfipmssol",
+		"_version": "1.1.0"
+	}
+}
